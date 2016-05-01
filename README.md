@@ -1,77 +1,83 @@
-# Pioneer DDJ-SR MIDI Mapping for Mixxx
+# Pioneer DDJ-SX2 MIDI Mapping for Mixxx
 
 ## Description 
 
-This is my attempt at mapping the [Pioneer DDJ-SR](http://pioneerdj.com/english/products/controller/ddj-sr.html) for [Mixxx](http://www.mixxx.org/). I wrote this specifically with Mixxx v1.11.0 in mind.
+based on hrudham's DDJ-SR mapping, with lots of modifications to make it work on the SX2.
+
+use Mixxx v2.0 for this mapping.
 
 ## How do I use it?
 
 If you just want to get your controller working with with Mixxx without bothering about the details much, then do the following:
 
-1. Download the following two files:
-    - [PIONEER_DDJ-SR.midi.xml](https://github.com/hrudham/Mixxx-Pioneer-DDJ-SR/blob/master/bin/PIONEER_DDJ-SR.midi.xml)
-    - [PIONEER_DDJ-SR-scripts.js](https://github.com/hrudham/Mixxx-Pioneer-DDJ-SR/blob/master/bin/PIONEER_DDJ-SR-scripts.js)
-2. Copy these to the `[Mixxx Directory]/controllers` folder. This will probably be one of the following locations:
+1. clone this repository, or download it as a zip.
+2. copy PIONEER_DDJ-SX2.midi.xml and PIONEER_DDJ-SX2-scripts.js to the `[Mixxx Directory]/controllers` folder. This will probably be one of the following locations:
     - Windows: `C:\Program Files\Mixxx\controllers`
     - Linux: `/usr/share/mixxx/controllers or /usr/local/share/mixxx/controllers`
     - OS X: `/Applications/Mixxx.app/Contents/Resources/controllers/`
-3. Make sure your Pioneer DDJ-SR is plugged in, turned on, and set up to use DJ software other than Serato (see your user manual, or the `Controller Setup` section below)
-4. Open (or restart) Mixxx, and enjoy using your (semi-functional) controller
+3. Make sure your Pioneer DDJ-SX2 is plugged in, turned on, and set up to use DJ software other than Sera- don't worry, you don't have to set it up.
+4. Open (or restart) Mixxx, and enjoy using your (almost-fully-functional) controller
 
 ### Controller Setup
 
-By default, your Pioneer DDJ-SR will be in "Serato-mode". This means that some functionality quite simply won't work in Mix until you turn it off (for example, keylock for the pitch controls). To change this, do the following.
-
-1. Turn off the Pioneer DDJ-SR
-2. Hold down `Shift` + `Play` on the left deck, and turn the power on.
-3. Turn the left deck's keylock on.
-4. Restart the controller.
-	
-To use the controller with Serato again, repeat this process and turn the keylock back off again. 
+the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into "this is Serato". no extra setup is involved. 
 
 ## What's implemented?
 
-- General
-    - Cross-fader
-	- VU Meter LEDs
-- Deck Controls
-    - Volume
-    - Play / pause
-	- High, mid and low EQ dials
-	- Cue button
-	- Sync button (although this works differently than in Serato; still to be fixed)
-	- Performance Pads
-		- Hot Cues
-		- Rolls
-		- Sampler (without LEDs however)
-- Jog Wheels
-    - Scratching
-	- Pitch Bending
+- crossfader
+- deck
+    - play/pause
+    - volume
+    - trim
+    - equalizer
+    - filter
+    - cue
+    - sync (needs a few fixes though)
+    - needle search
+    - headphone cue
+    - grid adjust/slide/set
+    - quantize
+    - keylock
+    - slip mode
+    - tempo slider
+    - loop functions (except slot select)
+    - crossfader assign buttons
+    - censor/reverse
+    - pads:
+        - hot cue
+        - roll
+        - slicer!
+        - sampler (LEDs included)
+        - cue loop (needs to be fixed though)
+        - saved loop (uses hotcues as workaround)
+        - slicer loop (maybe buggy)
+        - velocity sampler
+- jog wheels
+    - scratching
+    - pitch bend
+    - skipping
+- browser (except back button)
+- load buttons
+- panel select
+- effects
+    - since Mixxx uses a different effect framework, the effect panel wouldn't have worked properly, but i did it anyways
+    - will add information about this later
+- crossfader curve (maybe buggy)
 
 ## What's missing?
 
-- Some button LEDs
-- Performance Pads:
-	- PAD Plus functions
-	- Slicer
-	- Sampler LEDs (but sampler itself works)
-- Filter
-- Effects
-- Slip
-- A whole lot more stuff. Be patient; I am working on these :-)
-- Decks 3 and 4
+- parameter 1 and 2
+- sampler volume :(
+- grid clear
+- proper cue loop
+- browser back button
+- track number, song and artist buttons
+- ch fader start
+- tempo range
+- flip (doesn't exist in Mixxx, so it will be replaced with something else, until it gets implemented)
 
 ## I want to help. How do I build this?
 
-In order to make things a bit easier to understand and modularised, I've written a basic build process for this mapping. This allows me to do things like define all the midi-mappings in JavaScript, and then let Node build up the final XML file that Mixxx understands. In order to do this, you'll need to do the following:
+got rid of the build system, because it was easier for me to directly develop from Mixxx and Kate.
 
-1. Install [NodeJS](http://nodejs.org/) if you haven't already
-2. Get all of the node dependencies for this project: 
-    1. Open a console, command prompt or powershell.
-    2. Navigate go to the project folder.
-    3. Enter ```npm install```
-3. Build the project
-    1. Open a console, command prompt or powershell.
-    2. Navigate go to the project folder.
-    3. Enter ```gulp```
-
+however, you can clone this repository, install this mapping, and modify it. then copy the changes back to cloned repo, and commit.
