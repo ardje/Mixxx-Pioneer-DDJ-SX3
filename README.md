@@ -11,7 +11,7 @@ use Mixxx v2.0 for this mapping.
 If you just want to get your controller working with with Mixxx without bothering about the details much, then do the following:
 
 1. clone this repository, or download it as a zip.
-2. copy PIONEER_DDJ-SX2.midi.xml and PIONEER_DDJ-SX2-scripts.js to the `[Mixxx Directory]/controllers` folder. This will probably be one of the following locations:
+2. copy `bin/PIONEER_DDJ-SX2.midi.xml` and `bin/PIONEER_DDJ-SX2-scripts.js` to the `[Mixxx Directory]/controllers` folder. This will probably be one of the following locations:
     - Windows: `C:\Program Files\Mixxx\controllers`
     - Linux: `/usr/share/mixxx/controllers or /usr/local/share/mixxx/controllers`
     - OS X: `/Applications/Mixxx.app/Contents/Resources/controllers/`
@@ -80,4 +80,4 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 
 got rid of the build system, because it was easier for me to directly develop from Mixxx and Kate.
 
-however, you can clone this repository, install this mapping, and modify it. then copy the changes back to cloned repo, and commit.
+however, you can clone this repository, install this mapping, and modify it using Mixxx and your favorite text editor (don't use Notepad though, it does not recognize LF line endings). then copy the changes back to cloned repo, and commit.
