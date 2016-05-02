@@ -404,53 +404,6 @@ PioneerDDJSX2.SyncLights = function(value, group, control)
         midi.sendShortMsg(0x90+channel, 0x58, value?0x7f:0x00);
 };
 
-PioneerDDJSX2.Woah = function()
-{
-    // why......... why........................
-    // why in the world......
-    // when mixxx already had slip
-    // slip came to the world of pioneer
-    // and then pioneer allied serato
-    // and then they made a pact
-    // which stated that calling the slip
-    // will strike a light shower in front of you
-    // and all because it's a "new" feature
-    //
-    // umm *curses*- nvm, this is in the controller, so no need to do this.
-    // first flash
-    SlipShowerStatus++;
-    midi.sendShortMsg(0x97+groooup, 0x00 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x01 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x02 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x03 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x04 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x05 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x06 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x07 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x08 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x09 , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x0a , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x0b , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x0c , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x0d , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x0e , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x97+groooup, 0x0f , SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x90 + groooup, 0x40, SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x90 + groooup, 0x10, SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x90 + groooup, 0x11, SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x90 + groooup, 0x12, SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x90 + groooup, 0x13, SlipShowerStatus%2 ? 0x7f:0x00);
-    midi.sendShortMsg(0x90 + groooup, 0x14, SlipShowerStatus%2 ? 0x7f:0x00);
-    
-    if (SlipShowerStatus<4) {
-    engine.beginTimer(50,"PioneerDDJSX2.Woah",1);
-    } else {
-        midi.sendShortMsg(0x90 + groooup, 0x40, 0x7F);
-     print("animation has finished, giving up");  
-     SlipShowerStatus=0;
-    }
-};
-
 PioneerDDJSX2.RateThing = function(value, group, control) 
 {
 	var channel = PioneerDDJSX2.enumerations.channelGroups[group];	
