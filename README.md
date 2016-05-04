@@ -8,7 +8,7 @@ use Mixxx v2.0 for this mapping.
 
 ## How do I use it?
 
-If you just want to get your controller working with with Mixxx without bothering about the details much, then do the following:
+If you just want to get your controller working with Mixxx without bothering about the details much, then do the following:
 
 1. clone this repository, or download it as a zip.
 2. copy `bin/PIONEER_DDJ-SX2.midi.xml` and `bin/PIONEER_DDJ-SX2-scripts.js` to the `[Mixxx Directory]/controllers` folder. This will probably be one of the following locations:
