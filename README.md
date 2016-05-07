@@ -61,7 +61,7 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - panel select
 - effects
     - since Mixxx uses a different effect framework, the effect panel wouldn't have worked properly, but i did it anyways
-    - will add information about this later
+    - check out EFFECTS.md for instructions.
 - crossfader curve (maybe buggy)
 
 ## What's missing?
