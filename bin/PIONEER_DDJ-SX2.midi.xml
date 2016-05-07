@@ -269,10 +269,28 @@
                 </options>
             </control>
             <control>
+                <group>[Channel3]</group>
+                <key>PioneerDDJSX2.slipenabled</key>
+                <status>0x92</status>
+                <midino>0x40</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel4]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x9A</status>
                 <midino>0x44</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.slipenabled</key>
+                <status>0x93</status>
+                <midino>0x40</midino>
                 <options>
                     <script-binding/>
                 </options>
