@@ -54,6 +54,7 @@ var slicertype=[0,0,0,0];
 var slicergain=[0,0,0,0];
 var slicerpost=[0,0,0,0];
 var HCLOn=[0,0,0,0];
+var HCLNum=[0,0,0,0];
 var slicerlightforce=[0,0,0,0];
 var sampleplaying=[0,0,0,0,0,0,0,0];
 var oldsampleplaying=[0,0,0,0,0,0,0,0];
@@ -104,8 +105,13 @@ function doTimer() {
             midi.sendShortMsg(0x90+i,0x38,0x00);
             midi.sendShortMsg(0x90+i,0x15,0x00);
         }
+        if (HCLOn[i]) {
+          midi.sendShortMsg(0x96+i, 0x40+HCLNum[i], (tiltstatus)?0x7f:0x00);
+          midi.sendShortMsg(0x96+i, 0x48+HCLNum[i], (tiltstatus)?0x7f:0x00);
+        }
         }
         for (var i=0; i<8; i++) {
+          // sampler check
             oldsampleplaying1[i]=sampleplaying1[i];
             sampleplaying1[i]=engine.getValue("[Sampler"+(i+1)+"]","play");
         if (sampleplaying1[i]) {
@@ -1312,7 +1318,7 @@ PioneerDDJSX2.HotCuePerformancePadLed = function(value, group, control)
 PioneerDDJSX2.vuMeter = function(value, group, control) 
 {
 	// VU meter range is 0 to 127 (or 0x7F).
-	var level = /*parseInt(*/Math.pow(value,4)*0xaf/*)*/;
+	var level = value*127;
 	
 	var channel = null;
 	switch (group)
@@ -1577,10 +1583,13 @@ PioneerDDJSX2.HotCueLoop = function(performanceChannel, control, value, status)
             if (!HCLOn[deck]) {
                             engine.setValue(group, 'hotcue_'+(control - 0x3f)+'_activate', 1);
                             HCLOn[deck]=1;
+                            HCLNum[deck]=(control-0x40);
 		engine.beginTimer(20, function() {engine.setValue(group, 'beatloop_0.25_activate', 1);}, 1);
             } else {
 		engine.setValue(group, 'beatlooproll_0.25_activate', 0);
                 HCLOn[deck]=0;
+                midi.sendShortMsg(0x96+deck, 0x40+HCLNum[deck], 0x7f);
+                midi.sendShortMsg(0x96+deck, 0x48+HCLNum[deck], 0x7f);
             }
 	}
 	
