@@ -8,15 +8,15 @@ use Mixxx v2.0 for this mapping.
 
 ## How do I use it?
 
-If you just want to get your controller working with Mixxx without bothering about the details much, then do the following:
+if you just want to get your controller working with Mixxx without bothering about the details much, then do the following:
 
 1. clone this repository, or download it as a zip.
-2. copy `bin/PIONEER_DDJ-SX2.midi.xml` and `bin/PIONEER_DDJ-SX2-scripts.js` to the `[Mixxx Directory]/controllers` folder. This will probably be one of the following locations:
+2. copy `bin/PIONEER_DDJ-SX2.midi.xml` and `bin/PIONEER_DDJ-SX2-scripts.js` to `[Mixxx Directory]/controllers`. This will probably be one of the following locations:
     - Windows: `C:\Program Files\Mixxx\controllers`
     - Linux: `/usr/share/mixxx/controllers or /usr/local/share/mixxx/controllers`
     - OS X: `/Applications/Mixxx.app/Contents/Resources/controllers/`
-3. Make sure your Pioneer DDJ-SX2 is plugged in, turned on, and set up to use DJ software other than Sera- don't worry, you don't have to set it up.
-4. Open (or restart) Mixxx, and enjoy using your (almost-fully-functional) controller
+3. make sure your Pioneer DDJ-SX2 is plugged in and turned on.
+4. open (or restart) Mixxx, and enjoy using your (almost-fully-functional) controller
 
 ### Controller Setup
 
@@ -71,13 +71,22 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - grid clear
 - proper cue loop
 - browser back button
-- track number, song and artist buttons
 - ch fader start
 - tempo range
-- flip (doesn't exist in Mixxx, so it will be replaced with something else, until it gets implemented)
+- sampler bank switching
 
-## I want to help. How do I build this?
+## What's not possible at all?
 
-got rid of the build system, because it was easier for me to directly develop from Mixxx and Kate.
+- slicer with different precisions
+- flip
+- track number, song and artist buttons
 
-however, you can clone this repository, install this mapping, and modify it using Mixxx and your favorite text editor (don't use Notepad though, it does not recognize LF line endings). then copy the changes back to cloned repo, and commit.
+## I found a bug.
+
+awesome! go to the "Issues" description, and create an issue.
+
+## I want to help.
+
+you can fork this repository, clone it, install this mapping, and modify it using Mixxx and your favorite text editor (don't use Notepad though, it does not recognize LF line endings). then copy the changes back to cloned repo, and commit.
+
+make a pull request when done.

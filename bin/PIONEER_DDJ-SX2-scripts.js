@@ -4,9 +4,7 @@
 // todo:
 // clear beatgrid button
 // browser back button
-// track number, song and artist buttons
 // improvements to crossfader curve
-// proper flashing for cue loop
 // "parameters"
 // deck switching?
 // and fix the comments, because my excess copy/pasting made some comments really wrong (like, "headphone cue led" in "slip button led" LOL)
