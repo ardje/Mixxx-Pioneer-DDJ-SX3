@@ -598,6 +598,7 @@ PioneerDDJSX2.BeatActive = function(value, group, control)
 	//print("beat active!");
         //print(group);
         // slicer lights
+        print(value);
         oldbeat[channel]=beat[channel];
         beat[channel]=Math.round(value/engine.getValue(group,"track_samplerate")*(engine.getValue(group,"file_bpm")/120.0))-1;
         //print(beat[channel]%8+", "+oldbeat[channel]%8);
@@ -1202,6 +1203,25 @@ PioneerDDJSX2.SetSlicerMode = function(group, control, value, status)
         print("SLICER");
         PadMode[group]=2;
 	midi.sendShortMsg(0x90 + deck, 0x20, 0x7f);
+        // update slicer lights
+        beat[deck]=Math.round(engine.getValue("[Channel"+(group+1)+"]","beat_next")/engine.getValue("[Channel"+(group+1)+"]","track_samplerate")*(engine.getValue("[Channel"+(group+1)+"]","file_bpm")/120.0))-1;
+        print("beat "+engine.getValue("[Channel"+(group+1)+"]","beat_closest"));
+        midi.sendShortMsg(0x97+deck, 0x20, ((Math.floor(beat[deck]%8))==0)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x21, ((Math.floor(beat[deck]%8))==1)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x22, ((Math.floor(beat[deck]%8))==2)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x23, ((Math.floor(beat[deck]%8))==3)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x24, ((Math.floor(beat[deck]%8))==4)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x25, ((Math.floor(beat[deck]%8))==5)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x26, ((Math.floor(beat[deck]%8))==6)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x27, ((Math.floor(beat[deck]%8))==7)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x28, ((Math.floor(beat[deck]%8))==0)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x29, ((Math.floor(beat[deck]%8))==1)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x2a, ((Math.floor(beat[deck]%8))==2)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x2b, ((Math.floor(beat[deck]%8))==3)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x2c, ((Math.floor(beat[deck]%8))==4)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x2d, ((Math.floor(beat[deck]%8))==5)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x2e, ((Math.floor(beat[deck]%8))==6)?0x01:0x28);
+        midi.sendShortMsg(0x97+deck, 0x2f, ((Math.floor(beat[deck]%8))==7)?0x01:0x28);
     }
 };
 
@@ -1242,6 +1262,26 @@ PioneerDDJSX2.SetSlicerLoopMode = function(group, control, value, status)
         print("slicer loop");
         PadMode[group]=6;
 	midi.sendShortMsg(0x90 + deck, 0x6d, 0x7f);
+        // update slicer loop lights
+        // update slicer lights
+        beat[deck]=Math.round(engine.getValue("[Channel"+(group+1)+"]","beat_next")/engine.getValue("[Channel"+(group+1)+"]","track_samplerate")*(engine.getValue("[Channel"+(group+1)+"]","file_bpm")/120.0))-1;
+        print("beat "+engine.getValue("[Channel"+(group+1)+"]","beat_closest"));
+        midi.sendShortMsg(0x97+deck, 0x60, ((Math.floor(beat[deck]%8))==0)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x61, ((Math.floor(beat[deck]%8))==1)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x62, ((Math.floor(beat[deck]%8))==2)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x63, ((Math.floor(beat[deck]%8))==3)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x64, ((Math.floor(beat[deck]%8))==4)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x65, ((Math.floor(beat[deck]%8))==5)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x66, ((Math.floor(beat[deck]%8))==6)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x67, ((Math.floor(beat[deck]%8))==7)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x68, ((Math.floor(beat[deck]%8))==0)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x69, ((Math.floor(beat[deck]%8))==1)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x6a, ((Math.floor(beat[deck]%8))==2)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x6b, ((Math.floor(beat[deck]%8))==3)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x6c, ((Math.floor(beat[deck]%8))==4)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x6d, ((Math.floor(beat[deck]%8))==5)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x6e, ((Math.floor(beat[deck]%8))==6)?0x28:0x01);
+        midi.sendShortMsg(0x97+deck, 0x6f, ((Math.floor(beat[deck]%8))==7)?0x28:0x01);
     }
 };
 
