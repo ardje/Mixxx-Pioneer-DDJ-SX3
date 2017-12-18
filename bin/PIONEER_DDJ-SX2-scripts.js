@@ -5,7 +5,6 @@
 // clear beatgrid button
 // browser back button
 // track number, song and artist buttons
-// sampler volume
 // improvements to crossfader curve
 // proper flashing for cue loop
 // "parameters"
@@ -48,6 +47,8 @@ var slicerdelta=[0,0,0,0];
 var slicerbutton=[0,0,0,0];
 var slicerbuttonold=[0,0,0,0];
 var slicerblank=[0,0,0,0];
+var samplerVolume=1.0;
+var sampleVolume=[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
 
 var whohandlesdelta=[0,0,0,0];
 var slicertype=[0,0,0,0];
@@ -1293,6 +1294,22 @@ PioneerDDJSX2.SetVelocitySamplerMode = function(group, control, value, status)
         PadMode[group]=7;
 	midi.sendShortMsg(0x90 + deck, 0x6f, 0x7f);
     }
+};
+
+PioneerDDJSX2.SetSampleGain = function(value, group, control) 
+{
+        sampleVolume[group-112]=control/127;
+  engine.setParameter("[Sampler"+(group-111)+"]","pregain",samplerVolume*sampleVolume[group-112]);
+	print("doing"+(group-112)+" "+control);
+};
+
+PioneerDDJSX2.SetSamplerVol = function(value, group, control) 
+{
+  print("setting");      
+  samplerVolume=control/127;
+  for (var i=0; i<8; i++) {
+    engine.setParameter("[Sampler"+(i+1)+"]","pregain",samplerVolume*sampleVolume[i]);
+  }
 };
 
 // Lights up the LEDs for beat-loops.

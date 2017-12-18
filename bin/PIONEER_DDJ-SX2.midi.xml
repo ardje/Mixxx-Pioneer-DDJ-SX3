@@ -1531,38 +1531,38 @@
             </control>
             <control>
                 <group>[Sampler6]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB7</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler6]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler6]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler6]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1603,38 +1603,38 @@
             </control>
             <control>
                 <group>[Sampler2]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB7</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler2]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler2]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler2]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2783,38 +2783,38 @@
             </control>
             <control>
                 <group>[Sampler7]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB7</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler7]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler7]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler7]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2855,38 +2855,38 @@
             </control>
             <control>
                 <group>[Sampler3]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB7</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler3]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler3]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler3]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4194,38 +4194,38 @@
             </control>
             <control>
                 <group>[Sampler8]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB7</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler8]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler8]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler8]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4266,38 +4266,38 @@
             </control>
             <control>
                 <group>[Sampler4]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB7</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler4]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler4]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler4]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -5509,6 +5509,15 @@
                 </options>
             </control>
             <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SetSamplerVol</key>
+                <status>0xB6</status>
+                <midino>0x03</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>1</group>
                 <key>PioneerDDJSX2.PanelSelect</key>
                 <status>0x96</status>
@@ -5673,38 +5682,38 @@
             </control>
             <control>
                 <group>[Sampler5]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB7</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler5]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler5]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler5]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -5785,39 +5794,39 @@
             </control>
             <control>
                 <group>[Sampler1]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <description>MIDI Learned from 141 messages.</description>
                 <status>0xB7</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler1]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB8</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler1]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xB9</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Sampler1]</group>
-                <key>pregain</key>
+                <key>PioneerDDJSX2.SetSampleGain</key>
                 <status>0xBA</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>

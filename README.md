@@ -63,11 +63,11 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
     - since Mixxx uses a different effect framework, the effect panel wouldn't have worked properly, but i did it anyways
     - check out EFFECTS.md for instructions.
 - crossfader curve (maybe buggy)
+- sampler volume
 
 ## What's missing?
 
 - parameter 1 and 2
-- sampler volume :(
 - grid clear
 - proper cue loop
 - browser back button
