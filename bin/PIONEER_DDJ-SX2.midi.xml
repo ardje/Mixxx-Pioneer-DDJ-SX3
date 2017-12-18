@@ -2710,6 +2710,42 @@
             </control>
             <control>
                 <group>[Channel1]</group>
+                <key>play</key>
+                <status>0x90</status>
+                <midino>0x66</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>play</key>
+                <status>0x91</status>
+                <midino>0x66</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>play</key>
+                <status>0x92</status>
+                <midino>0x66</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>play</key>
+                <status>0x93</status>
+                <midino>0x66</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
                 <key>PioneerDDJSX2.SlicerThing</key>
                 <status>0x97</status>
                 <midino>0x66</midino>
@@ -2971,12 +3007,30 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1]</group>
+                <key>cue_gotoandstop</key>
+                <status>0x90</status>
+                <midino>0x52</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel2]</group>
                 <key>PioneerDDJSX2.SavedLoop</key>
                 <status>0x98</status>
                 <midino>0x56</midino>
                 <options>
                     <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>cue_gotoandstop</key>
+                <status>0x91</status>
+                <midino>0x52</midino>
+                <options>
+                    <normal/>
                 </options>
             </control>
             <control>
@@ -2989,12 +3043,30 @@
                 </options>
             </control>
             <control>
+                <group>[Channel3]</group>
+                <key>cue_gotoandstop</key>
+                <status>0x92</status>
+                <midino>0x52</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel4]</group>
                 <key>PioneerDDJSX2.SavedLoop</key>
                 <status>0x9A</status>
                 <midino>0x56</midino>
                 <options>
                     <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>cue_gotoandstop</key>
+                <status>0x93</status>
+                <midino>0x52</midino>
+                <options>
+                    <normal/>
                 </options>
             </control>
             <control>
