@@ -83,7 +83,7 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 
 ## I found a bug.
 
-awesome! go to the "Issues" description, and create an issue.
+awesome! go to the "Issues" section, and create an issue.
 
 ## I want to help.
 
