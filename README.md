@@ -65,14 +65,13 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - crossfader curve (maybe buggy)
 - sampler volume
 - channel/cross fader start
+- tempo range
 
 ## What's missing?
 
 - parameter 1 and 2
-- grid clear
 - proper cue loop
 - browser back button
-- tempo range
 - sampler bank switching
 
 ## What's not possible at all?
@@ -80,6 +79,7 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - slicer with different precisions
 - flip
 - track number, song and artist buttons
+- grid clear
 
 ## I found a bug.
 

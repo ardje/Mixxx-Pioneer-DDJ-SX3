@@ -73,6 +73,8 @@ var lt=[[[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],[[0,
 var lttimer=0;
 // 0: min 1/32, 1: min 1/16, 2: min 1/8, etc.
 var rollPrec=[2,2,2,2];
+// 0: 8% of max, 1: 16% of max, 2: 50% of max 3: 90% of max
+var tempoRange=[0,0,0,0];
 
 // new slicer variables
 var slicersched=[0,0,0,0];
@@ -177,6 +179,7 @@ PioneerDDJSX2.init = function(id)
 			jogResolution: 2054, // 2054 for accurate scratches (until we find a more accurate value)
 			vinylSpeed: 33 + 1/3,
 			loopIntervals: ['0.03125', '0.0625', '0.125', '0.25', '0.5', '1', '2', '4', '8', '16', '32', '64'],
+                        tempoRanges: [0.08,0.16,0.5,0.9],
                         hotCueColors: [0x2A,0x24,0x01,0x1D,0x15,0x37,0x08,0x3A], // set to [0x2A,0x24,0x01,0x1D,0x15,0x37,0x08,0x3A] for serato defaults
                         rollColors: [0x1d, 0x16, 0x13, 0x0d, 0x05],
 			safeScratchTimeout: 20, // 20ms is the minimum allowed here.
@@ -260,6 +263,10 @@ PioneerDDJSX2.init = function(id)
         midi.sendShortMsg(0xbb, 5, 0);
         midi.sendShortMsg(0xbb, 6, 0);
         midi.sendShortMsg(0xbb, 7, 0);
+        // set tempo range
+        for (var i=0; i<4; i++) {
+          engine.setParameter("[Channel"+(i+1)+"]","rateRange",PioneerDDJSX2.settings.tempoRanges[tempoRange[i]]);
+        }
         // and finally, change leds to mixxx's status
         // will be done
 }
@@ -1165,6 +1172,12 @@ PioneerDDJSX2.SetGridAdjust = function(value, group, control)
         midi.sendShortMsg(0x90 + value, 0x79, control ? 0x7F : 0x00);
 };
 
+PioneerDDJSX2.ClearGrid = function(value, group, control) 
+{
+	print("this is impossible");
+        midi.sendShortMsg(0x90 + value, 0x79, control ? 0x7F : 0x00);
+};
+
 // This handles LEDs related to the play event.
 PioneerDDJSX2.PlayLeds = function(value, group, control) 
 {
@@ -1310,6 +1323,18 @@ PioneerDDJSX2.SetSamplerVol = function(value, group, control)
   samplerVolume=control/127;
   for (var i=0; i<8; i++) {
     engine.setParameter("[Sampler"+(i+1)+"]","pregain",samplerVolume*sampleVolume[i]);
+  }
+};
+
+PioneerDDJSX2.SetTempoRange = function(group, control, value, status) 
+{
+  if (value==127) {
+    tempoRange[group]++;
+    if (tempoRange[group]>3) {
+      tempoRange[group]=0;
+    }
+    print("setting tr "+tempoRange[group]);
+    engine.setParameter("[Channel"+(group+1)+"]","rateRange",PioneerDDJSX2.settings.tempoRanges[tempoRange[group]]);
   }
 };
 
