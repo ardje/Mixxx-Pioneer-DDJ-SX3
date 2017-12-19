@@ -1682,7 +1682,7 @@ PioneerDDJSX2.SlicerThing = function(performanceChannel, control, value, status)
 	var group = '[Channel' + (deck+1) +']';
 	//var interval = PioneerDDJSX2.settings.loopIntervals[control - 0x10 + 2];
         
-	if (value == 0x7F)
+	if (value == 0x7F && engine.getValue(group,"play") && engine.getValue(group,"bpm")>0)
 	{
            /* if (slicertimer!=0) {
                 engine.stopTimer(slicertimer);
