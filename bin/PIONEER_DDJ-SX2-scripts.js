@@ -75,6 +75,7 @@ var lttimer=0;
 var rollPrec=[2,2,2,2];
 // 0: 8% of max, 1: 16% of max, 2: 50% of max 3: 90% of max
 var tempoRange=[0,0,0,0];
+var vinylOn=[1,1,1,1];
 
 // new slicer variables
 var slicersched=[0,0,0,0];
@@ -263,8 +264,10 @@ PioneerDDJSX2.init = function(id)
         midi.sendShortMsg(0xbb, 5, 0);
         midi.sendShortMsg(0xbb, 6, 0);
         midi.sendShortMsg(0xbb, 7, 0);
-        // set tempo range
         for (var i=0; i<4; i++) {
+          // set vinyl mode
+          midi.sendShortMsg(0x90+i, 0x0d, 0x7f);
+          // set tempo range
           engine.setParameter("[Channel"+(i+1)+"]","rateRange",PioneerDDJSX2.settings.tempoRanges[tempoRange[i]]);
         }
         // and finally, change leds to mixxx's status
@@ -1338,6 +1341,14 @@ PioneerDDJSX2.SetTempoRange = function(group, control, value, status)
   }
 };
 
+PioneerDDJSX2.ToggleVinyl = function(group, control, value, status) 
+{
+  if (value==127) {
+    vinylOn[group]=!vinylOn[group];
+    print("tv");
+  }
+};
+
 PioneerDDJSX2.RollParam1L = function(group, control, value, status)
 {
   if (value==127) {
@@ -1525,7 +1536,7 @@ PioneerDDJSX2.postponeDisableScratch = function(channel)
 // jog-mode is set to vinyl to enable and disable scratching.
 PioneerDDJSX2.jogScratchTouch = function(channel, control, value, status) 
 {
-	if (value == 0x7F)
+	if (value == 0x7F && vinylOn[channel])
 	{
 		PioneerDDJSX2.unscheduleDisableScratch(channel);	
 		PioneerDDJSX2.toggleScratch(channel, true);

@@ -43,6 +43,8 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
     - loop functions (except slot select)
     - crossfader assign buttons
     - censor/reverse
+    - tempo range
+    - vinyl mode on/off
     - pads:
         - hot cue
         - roll
@@ -65,7 +67,6 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - crossfader curve (maybe buggy)
 - sampler volume
 - channel/cross fader start
-- tempo range
 
 ## What's missing?
 
