@@ -1859,6 +1859,14 @@ PioneerDDJSX2.RotarySelector = function(channel, control, value, status)
 	}
 };
 
+PioneerDDJSX2.BackButton = function(channel, control, value, status) 
+{
+	if (value == 0x7F)
+	{
+		PioneerDDJSX2.status.rotarySelector.target = PioneerDDJSX2.enumerations.rotarySelector.targets.libraries;
+	}
+};
+
 PioneerDDJSX2.RotarySelectorClick = function(channel, control, value, status) 
 {
 	// Only trigger when the button is pressed down, not when it comes back up.

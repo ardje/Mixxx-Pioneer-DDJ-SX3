@@ -58,7 +58,10 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
     - scratching
     - pitch bend
     - skipping
-- browser (except back button)
+- browser
+  - selector
+  - selector toggle
+  - back button
 - load buttons
 - panel select
 - effects
@@ -69,9 +72,8 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - channel/cross fader start
 
 ## What's missing?
-
+- browser view/area/load prepare
 - parameter 1 and 2
-- browser back button
 - sampler bank switching
 
 ## What's not possible at all?

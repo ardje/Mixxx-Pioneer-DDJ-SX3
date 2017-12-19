@@ -1619,6 +1619,15 @@
                 </options>
             </control>
             <control>
+                <group>[Playlist]</group>
+                <key>PioneerDDJSX2.BackButton</key>
+                <status>0x96</status>
+                <midino>0x65</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>PioneerDDJSX2.SlicerThing</key>
                 <status>0x97</status>
