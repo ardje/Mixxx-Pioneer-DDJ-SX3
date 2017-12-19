@@ -1510,6 +1510,12 @@ PioneerDDJSX2.jogScratchTouch = function(channel, control, value, status)
 		PioneerDDJSX2.scheduleDisableScratch(channel);
 	}
 };
+
+PioneerDDJSX2.jogSeek = function(channel, control, value, status) 
+{
+  print("seek "+PioneerDDJSX2.getJogWheelDelta(value));
+  engine.setValue("[Channel"+(channel+1)+"]","beatjump",PioneerDDJSX2.getJogWheelDelta(value)/16);
+};
  
 // Scratch or seek with the jog-wheel.
 PioneerDDJSX2.jogScratchTurn = function(channel, control, value, status) 

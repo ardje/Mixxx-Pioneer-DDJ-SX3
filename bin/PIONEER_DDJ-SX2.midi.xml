@@ -3710,12 +3710,39 @@
             </control>
             <control>
                 <group>[Channel1]</group>
-                <key>playposition</key>
+                <key>PioneerDDJSX2.jogSeek</key>
                 <description>MIDI Learned from 385 messages.</description>
                 <status>0xB0</status>
                 <midino>0x26</midino>
                 <options>
-                    <rot64/>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>PioneerDDJSX2.jogSeek</key>
+                <status>0xB1</status>
+                <midino>0x26</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>PioneerDDJSX2.jogSeek</key>
+                <status>0xB2</status>
+                <midino>0x26</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.jogSeek</key>
+                <status>0xB3</status>
+                <midino>0x26</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4802,6 +4829,15 @@
                 </options>
             </control>
             <control>
+                <group>[Channel2]</group>
+                <key>PioneerDDJSX2.Shift</key>
+                <status>0x91</status>
+                <midino>0x3F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel3]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x99</status>
@@ -4811,10 +4847,28 @@
                 </options>
             </control>
             <control>
+                <group>[Channel3]</group>
+                <key>PioneerDDJSX2.Shift</key>
+                <status>0x92</status>
+                <midino>0x3F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel4]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x9A</status>
                 <midino>0x43</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.Shift</key>
+                <status>0x93</status>
+                <midino>0x3F</midino>
                 <options>
                     <script-binding/>
                 </options>
