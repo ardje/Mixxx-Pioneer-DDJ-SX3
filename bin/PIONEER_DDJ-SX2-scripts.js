@@ -71,6 +71,8 @@ var selectedpanel=0;
 var reverse=[0,0,0,0];
 var lt=[[[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],[[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]];
 var lttimer=0;
+// 0: min 1/32, 1: min 1/16, 2: min 1/8, etc.
+var rollPrec=[2,2,2,2];
 
 // new slicer variables
 var slicersched=[0,0,0,0];
@@ -176,6 +178,7 @@ PioneerDDJSX2.init = function(id)
 			vinylSpeed: 33 + 1/3,
 			loopIntervals: ['0.03125', '0.0625', '0.125', '0.25', '0.5', '1', '2', '4', '8', '16', '32', '64'],
                         hotCueColors: [0x2A,0x24,0x01,0x1D,0x15,0x37,0x08,0x3A], // set to [0x2A,0x24,0x01,0x1D,0x15,0x37,0x08,0x3A] for serato defaults
+                        rollColors: [0x1d, 0x16, 0x13, 0x0d, 0x05],
 			safeScratchTimeout: 20, // 20ms is the minimum allowed here.
 			CenterLightBehavior: 1, // 0 for rotations, 1 for beats, -1 to disable
 			DoNotTrickController: 0 // enable this to stop tricking your controller into "this is serato" hahaha... but be careful as enabling this will disable the red light and spin sync and the slip shower
@@ -1191,7 +1194,7 @@ PioneerDDJSX2.SetRollMode = function(group, control, value, status)
 	var deck = group; 
         print("ROLL");
         PadMode[group]=1;
-	midi.sendShortMsg(0x90 + deck, 0x1e, 0x7f);
+	midi.sendShortMsg(0x90 + deck, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
     }
 };
 
@@ -1307,6 +1310,32 @@ PioneerDDJSX2.SetSamplerVol = function(value, group, control)
   samplerVolume=control/127;
   for (var i=0; i<8; i++) {
     engine.setParameter("[Sampler"+(i+1)+"]","pregain",samplerVolume*sampleVolume[i]);
+  }
+};
+
+PioneerDDJSX2.RollParam1L = function(group, control, value, status)
+{
+  if (value==127) {
+    print("rp1l"+group);
+    rollPrec[group]--;
+    if (rollPrec[group]<0) {
+      rollPrec[group]=0;
+    }
+    print("new rp: "+rollPrec[group]);
+    midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+  }
+};
+
+PioneerDDJSX2.RollParam1R = function(group, control, value, status)
+{
+  if (value==127) {
+    print("rp1r"+group);
+    rollPrec[group]++;
+    if (rollPrec[group]>4) {
+      rollPrec[group]=4;
+    }
+    print("new rp: "+rollPrec[group]);
+    midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
   }
 };
 
@@ -1612,7 +1641,7 @@ PioneerDDJSX2.RollPerformancePad = function(performanceChannel, control, value, 
 {
 	var deck = performanceChannel - 6;  
 	var group = '[Channel' + deck +']';
-	var interval = PioneerDDJSX2.settings.loopIntervals[control - 0x10 + 2];
+	var interval = PioneerDDJSX2.settings.loopIntervals[control - 0x10 + rollPrec[performanceChannel-7]];
         
 	if (value == 0x7F)
 	{
@@ -1623,7 +1652,7 @@ PioneerDDJSX2.RollPerformancePad = function(performanceChannel, control, value, 
 		engine.setValue(group, 'beatlooproll_' + interval + '_activate', 0);
 	}
 	
-	midi.sendShortMsg(0x97 + deck - 1, control, value);
+	midi.sendShortMsg(0x97 + deck - 1, control, (value==0x7f)?(PioneerDDJSX2.settings.rollColors[rollPrec[performanceChannel-7]]):(0x00));
 };
 
 // This handles the cue loop thingy.
