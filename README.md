@@ -50,7 +50,7 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
         - roll
         - slicer!
         - sampler (LEDs included)
-        - cue loop (needs to be fixed though)
+        - cue loop
         - saved loop (uses hotcues as workaround)
         - slicer loop (maybe buggy)
         - velocity sampler
@@ -71,7 +71,6 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 ## What's missing?
 
 - parameter 1 and 2
-- proper cue loop
 - browser back button
 - sampler bank switching
 

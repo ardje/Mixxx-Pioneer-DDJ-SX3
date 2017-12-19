@@ -73,6 +73,7 @@ var lt=[[[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],[[0,
 var lttimer=0;
 // 0: min 1/32, 1: min 1/16, 2: min 1/8, etc.
 var rollPrec=[2,2,2,2];
+var hclPrec=[3,3,3,3];
 // 0: 8% of max, 1: 16% of max, 2: 50% of max 3: 90% of max
 var tempoRange=[0,0,0,0];
 var vinylOn=[1,1,1,1];
@@ -1375,6 +1376,42 @@ PioneerDDJSX2.RollParam1R = function(group, control, value, status)
   }
 };
 
+PioneerDDJSX2.CueLoopParam1L = function(group, control, value, status)
+{
+  if (value==127) {
+    print("clp1l"+group);
+    hclPrec[group]--;
+    if (hclPrec[group]<0) {
+      hclPrec[group]=0;
+    } else {
+      if (HCLOn[group+1]) {
+        print("must halve");
+        engine.setValue("[Channel"+(group+1)+"]",'loop_halve',1);
+      }
+    }
+    print("new hclp: "+hclPrec[group]);
+    //midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+  }
+};
+
+PioneerDDJSX2.CueLoopParam1R = function(group, control, value, status)
+{
+  if (value==127) {
+    print("clp1r"+group);
+    hclPrec[group]++;
+    if (hclPrec[group]>11) {
+      hclPrec[group]=11;
+    } else {
+      if (HCLOn[group+1]) {
+        print("must double");
+        engine.setValue("[Channel"+(group+1)+"]",'loop_double',1);
+      }
+    }
+    print("new hclp: "+hclPrec[group]);
+    //midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+  }
+};
+
 // Lights up the LEDs for beat-loops.
 PioneerDDJSX2.RollPerformancePadLed = function(value, group, control) 
 {
@@ -1702,17 +1739,34 @@ PioneerDDJSX2.HotCueLoop = function(performanceChannel, control, value, status)
 {
 	var deck = performanceChannel - 6;  
 	var group = '[Channel' + deck +']';
-	var interval = PioneerDDJSX2.settings.loopIntervals[control - 0x40 + 2];
+	//var interval = PioneerDDJSX2.settings.loopIntervals[control - 0x40 + 2];
         
 	if (value == 0x7F)
 	{
-            if (!HCLOn[deck]) {
-                            engine.setValue(group, 'hotcue_'+(control - 0x3f)+'_activate', 1);
-                            HCLOn[deck]=1;
-                            HCLNum[deck]=(control-0x40);
-		engine.beginTimer(20, function() {engine.setValue(group, 'beatloop_0.25_activate', 1);}, 1);
+            if (!HCLOn[deck] || control>=0x48 || HCLNum[deck]!=(control&0x7)) {
+              //engine.setValue(group, 'beatloop_0.25_activate', 1);
+              engine.setValue(group, 'hotcue_'+(1+(control&0x7))+'_activate', 1);
+              engine.setValue(group, 'loop_start_position',engine.getValue(group,'hotcue_'+(1+(control&0x7))+'_position'));
+              engine.setValue(group, 'loop_end_position',engine.getValue(group,'hotcue_'+(1+(control&0x7))+'_position')+
+                engine.getValue(group,'track_samplerate')*(120/engine.getValue(group,'file_bpm'))*PioneerDDJSX2.settings.loopIntervals[hclPrec[deck-1]]
+              );
+              if (!engine.getValue(group, 'loop_enabled')) {
+                // workaround
+                engine.setValue(group, 'reloop_exit',1);
+                engine.setValue(group, 'reloop_exit',0);
+              }
+              if (HCLOn[deck]) {
+                midi.sendShortMsg(0x96+deck, 0x40+HCLNum[deck], 0x7f);
+                midi.sendShortMsg(0x96+deck, 0x48+HCLNum[deck], 0x7f);
+              }
+              HCLOn[deck]=1;
+              HCLNum[deck]=(control&0x7);
             } else {
-		engine.setValue(group, 'beatlooproll_0.25_activate', 0);
+		if (engine.getValue(group, 'loop_enabled')) {
+                  // workaround
+                  engine.setValue(group, 'reloop_exit',1);
+                  engine.setValue(group, 'reloop_exit',0);
+                }
                 HCLOn[deck]=0;
                 midi.sendShortMsg(0x96+deck, 0x40+HCLNum[deck], 0x7f);
                 midi.sendShortMsg(0x96+deck, 0x48+HCLNum[deck], 0x7f);
