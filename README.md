@@ -35,6 +35,7 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
     - sync (needs a few fixes though)
     - needle search
     - headphone cue
+    - tempo tap (seems like it is not working though)
     - grid adjust/slide/set
     - quantize
     - keylock
