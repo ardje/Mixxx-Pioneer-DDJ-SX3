@@ -1154,15 +1154,6 @@
                 </options>
             </control>
             <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x4D</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
                 <group>[Channel1]</group>
                 <key>hotcue_1_clear</key>
                 <description>MIDI Learned from 2 messages.</description>
@@ -1210,15 +1201,6 @@
                 <midino>0x08</midino>
                 <options>
                     <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x49</midino>
-                <options>
-                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2408,6 +2390,70 @@
                 </options>
             </control>
             <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.HotCueLoop</key>
+                <status>0x0A</status>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>PioneerDDJSX2.RollParam1L</key>
                 <status>0x90</status>
@@ -2768,15 +2814,6 @@
             </control>
             <control>
                 <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x4E</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
                 <key>hotcue_6_clear</key>
                 <description>MIDI Learned from 6 messages.</description>
                 <status>0x9A</status>
@@ -2813,15 +2850,6 @@
                 <midino>0x09</midino>
                 <options>
                     <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x4A</midino>
-                <options>
-                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3075,6 +3103,15 @@
                 <midino>0x66</midino>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.ViewButton</key>
+                <status>0x96</status>
+                <midino>0x66</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4285,15 +4322,6 @@
                 </options>
             </control>
             <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x4F</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
                 <group>[Channel1]</group>
                 <key>hotcue_3_clear</key>
                 <description>MIDI Learned from 2 messages.</description>
@@ -4341,15 +4369,6 @@
                 <midino>0x0A</midino>
                 <options>
                     <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x4B</midino>
-                <options>
-                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4651,8 +4670,8 @@
                 </options>
             </control>
             <control>
-                <group>[Playlist]</group>
-                <key>ToggleSelectedSidebarItem</key>
+                <group>[PreviewDeck1]</group>
+                <key>LoadSelectedTrack</key>
                 <description>MIDI Learned from 2 messages.</description>
                 <status>0x96</status>
                 <midino>0x67</midino>
@@ -5815,15 +5834,6 @@
             </control>
             <control>
                 <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x4C</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
                 <key>hotcue_4_clear</key>
                 <description>MIDI Learned from 8 messages.</description>
                 <status>0x9A</status>
@@ -5886,15 +5896,6 @@
                 <midino>0x07</midino>
                 <options>
                     <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <midino>0x48</midino>
-                <options>
-                    <script-binding/>
                 </options>
             </control>
             <control>

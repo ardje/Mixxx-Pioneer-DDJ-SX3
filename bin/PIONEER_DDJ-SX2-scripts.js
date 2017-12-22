@@ -68,6 +68,7 @@ var IgnoreBC=[0,0,0,0];
 var currenteffect=[0,0];
 var currenteffectparamset=[0,0,0,0,0,0,0,0];
 var selectedpanel=0;
+var selectedview=0;
 var reverse=[0,0,0,0];
 var lt=[[[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],[[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]];
 var lttimer=0;
@@ -468,7 +469,13 @@ PioneerDDJSX2.SyncEnable = function(value, group, control)
 	var channel = PioneerDDJSX2.enumerations.channelGroups[group];	
         if (control==127) {
             print("do");
-            engine.setValue("[Channel"+(value+1)+"]","sync_enabled",1);
+            if (value==0 || value==2) {
+              engine.setValue("[Channel"+(value+1)+"]","sync_enabled",1);
+              engine.setValue("[Channel"+(value+2)+"]","sync_enabled",1);
+            } else {
+              engine.setValue("[Channel"+(value+1)+"]","sync_enabled",1);
+              engine.setValue("[Channel"+(value)+"]","sync_enabled",1);
+            }
         }
 };
 
@@ -477,7 +484,13 @@ PioneerDDJSX2.SyncDisable = function(value, group, control)
 	var channel = PioneerDDJSX2.enumerations.channelGroups[group];	
         if (control==127) {
             print("do");
-            engine.setValue("[Channel"+(value+1)+"]","sync_enabled",0);
+            if (value==0 || value==2) {
+              engine.setValue("[Channel"+(value+1)+"]","sync_enabled",0);
+              engine.setValue("[Channel"+(value+2)+"]","sync_enabled",0);
+            } else {
+              engine.setValue("[Channel"+(value+1)+"]","sync_enabled",0);
+              engine.setValue("[Channel"+(value)+"]","sync_enabled",0);
+            }
         }
 };
 
@@ -1136,25 +1149,36 @@ PioneerDDJSX2.PanelSelect = function(value, group, control)
 {
 	//var channel = PioneerDDJSX2.enumerations.channelGroups[group];
     if (control==127) {
-        // selectedpanel bitmap:
-        // bit 0: samplers
-        // bit 1: effect rack
-        // bit 2: mixer
-        // bit 3: 4 decks
-        // bit 4: microphone
-        // bit 5: preview deck
-        // bit 6: stacked waveforms
         selectedpanel+=((1-(group-120))*2)-1;
-        if (selectedpanel<0) {selectedpanel=127;}
-        if (selectedpanel>127) {selectedpanel=0;}
+        if (selectedpanel<0) {selectedpanel=2;}
+        if (selectedpanel>2) {selectedpanel=0;}
         print(selectedpanel);
-        engine.setValue("[Samplers]","show_samplers",selectedpanel&1);
-        engine.setValue("[EffectRack1]","show",selectedpanel&2);
-        engine.setValue("[Master]","hide_mixer",selectedpanel&4);
-        engine.setValue("[Master]","show_4decks",selectedpanel&8);
-        engine.setValue("[Microphone]","show_microphone",selectedpanel&16);
-        engine.setValue("[PreviewDeck]","show_previewdeck",selectedpanel&32);
-        engine.setValue("[Deere]","show_stacked_waveforms",selectedpanel&64);
+        switch (selectedpanel) {
+          case 0:
+            engine.setValue("[Samplers]","show_samplers",0);
+            engine.setValue("[EffectRack1]","show",0);
+            break;
+          case 1:
+            engine.setValue("[Samplers]","show_samplers",1);
+            engine.setValue("[EffectRack1]","show",0);
+            break;
+          case 2:
+            engine.setValue("[Samplers]","show_samplers",0);
+            engine.setValue("[EffectRack1]","show",1);
+            break;
+        }
+    }
+};
+
+PioneerDDJSX2.ViewButton = function(value, group, control)
+{
+    if (control==127) {
+        selectedview++;
+        if (selectedview>7) {selectedpanel=0;}
+        print(selectedview);
+        engine.setValue("[Master]","show_4decks",selectedview&1);
+        engine.setValue("[Deere]","show_stacked_waveforms",selectedview&2);
+        engine.setValue("[Master]","hide_mixer",selectedview&4);
     }
 };
 

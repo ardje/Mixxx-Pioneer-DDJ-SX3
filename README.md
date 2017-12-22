@@ -32,7 +32,7 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
     - equalizer
     - filter
     - cue
-    - sync (needs a few fixes though)
+    - sync
     - needle search
     - headphone cue
     - tempo tap (seems like it is not working though)
@@ -63,6 +63,8 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
   - selector
   - selector toggle
   - back button
+  - view/area
+  - load prepare
 - load buttons
 - panel select
 - effects
@@ -73,7 +75,6 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - channel/cross fader start
 
 ## What's missing?
-- browser view/area/load prepare
 - parameter 1 and 2
 - sampler bank switching
 
