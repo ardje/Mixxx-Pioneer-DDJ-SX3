@@ -78,6 +78,7 @@ var hclPrec=[3,3,3,3];
 // 0: 8% of max, 1: 16% of max, 2: 50% of max 3: 90% of max
 var tempoRange=[0,0,0,0];
 var vinylOn=[1,1,1,1];
+var closestBeatToLoopIn=[0,0,0,0];
 
 // new slicer variables
 var slicersched=[0,0,0,0];
@@ -809,6 +810,31 @@ PioneerDDJSX2.CrossfaderCurve = function(value, group, control)
 {
 	engine.setValue("[Mixer Profile]","xFaderCurve",control/16);
 };
+
+// This handles the loop in button.
+PioneerDDJSX2.LoopIn = function(group, control, value, status) 
+{
+  engine.setValue("[Channel"+(group+1)+"]","loop_in",value?1:0);
+  if (value==0x7f) {
+    closestBeatToLoopIn[group]=engine.getValue("[Channel"+(group+1)+"]","beat_closest");
+  }
+}
+
+// This handles 4 beat loop.
+PioneerDDJSX2.FourBeat = function(group, control, value, status) 
+{
+  var channel="[Channel"+(group+1)+"]";
+  var la;
+  if (value==0x7f) {
+    la=engine.getValue(channel,'loop_enabled')
+    engine.setValue(channel,"loop_start_position",closestBeatToLoopIn[group]);
+    engine.setValue(channel,"loop_end_position",closestBeatToLoopIn[group]+engine.getValue(channel,'track_samplerate')*(480/engine.getValue(channel,'file_bpm')));
+    if (!la) {
+      engine.setValue(channel,"reloop_exit",1);
+      engine.setValue(channel,"reloop_exit",0);
+    }
+  }
+}
 
 // This handles LEDs related to the loop double event.
 PioneerDDJSX2.LoopDouble = function(value, group, control) 
