@@ -1441,6 +1441,11 @@ PioneerDDJSX2.CueLoopParam1L = function(group, control, value, status)
     }
     print("new hclp: "+hclPrec[group]);
     //midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+  } else {
+    if (HCLOn[group+1]) {
+      print("must halve");
+      engine.setValue("[Channel"+(group+1)+"]",'loop_halve',0);
+    }
   }
 };
 
@@ -1459,6 +1464,11 @@ PioneerDDJSX2.CueLoopParam1R = function(group, control, value, status)
     }
     print("new hclp: "+hclPrec[group]);
     //midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+  } else {
+    if (HCLOn[group+1]) {
+      print("must double");
+      engine.setValue("[Channel"+(group+1)+"]",'loop_double',0);
+    }
   }
 };
 
