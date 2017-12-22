@@ -113,8 +113,8 @@ function doTimer() {
             midi.sendShortMsg(0x90+i,0x15,0x00);
         }
         if (HCLOn[i]) {
-          midi.sendShortMsg(0x96+i, 0x40+HCLNum[i], (tiltstatus)?0x7f:0x00);
-          midi.sendShortMsg(0x96+i, 0x48+HCLNum[i], (tiltstatus)?0x7f:0x00);
+          midi.sendShortMsg(0x96+i, 0x40+HCLNum[i], (tiltstatus)?PioneerDDJSX2.settings.cueLoopColors[hclPrec[i-1]]:0x00);
+          midi.sendShortMsg(0x96+i, 0x48+HCLNum[i], (tiltstatus)?PioneerDDJSX2.settings.cueLoopColors[hclPrec[i-1]]:0x00);
         }
         }
         for (var i=0; i<8; i++) {
@@ -186,6 +186,7 @@ PioneerDDJSX2.init = function(id)
                         tempoRanges: [0.08,0.16,0.5,0.9],
                         hotCueColors: [0x2A,0x24,0x01,0x1D,0x15,0x37,0x08,0x3A], // set to [0x2A,0x24,0x01,0x1D,0x15,0x37,0x08,0x3A] for serato defaults
                         rollColors: [0x1d, 0x16, 0x13, 0x0d, 0x05],
+                        cueLoopColors: [0x30, 0x35, 0x3a, 0x01, 0x05, 0x0a, 0x10, 0x15, 0x1a, 0x24, 0x27, 0x2a],
 			safeScratchTimeout: 20, // 20ms is the minimum allowed here.
 			CenterLightBehavior: 1, // 0 for rotations, 1 for beats, -1 to disable
 			DoNotTrickController: 0 // enable this to stop tricking your controller into "this is serato" hahaha... but be careful as enabling this will disable the red light and spin sync and the slip shower
@@ -1310,7 +1311,7 @@ PioneerDDJSX2.SetCueLoopMode = function(group, control, value, status)
 	var deck = group;  
         print("cue loop");
         PadMode[group]=4;
-        midi.sendShortMsg(0x90 + deck, 0x69, 0x7f);
+        midi.sendShortMsg(0x90 + deck, 0x69, PioneerDDJSX2.settings.cueLoopColors[hclPrec[group]]);
     }
 };
 
@@ -1440,7 +1441,8 @@ PioneerDDJSX2.CueLoopParam1L = function(group, control, value, status)
       }
     }
     print("new hclp: "+hclPrec[group]);
-    //midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+    midi.sendShortMsg(0x90 + group, 0x69, PioneerDDJSX2.settings.cueLoopColors[hclPrec[group]]);
+    PioneerDDJSX2.UpdateCueLoopLights(group);
   } else {
     if (HCLOn[group+1]) {
       print("must halve");
@@ -1463,7 +1465,8 @@ PioneerDDJSX2.CueLoopParam1R = function(group, control, value, status)
       }
     }
     print("new hclp: "+hclPrec[group]);
-    //midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+    midi.sendShortMsg(0x90 + group, 0x69, PioneerDDJSX2.settings.cueLoopColors[hclPrec[group]]);
+    PioneerDDJSX2.UpdateCueLoopLights(group);
   } else {
     if (HCLOn[group+1]) {
       print("must double");
@@ -1493,6 +1496,22 @@ PioneerDDJSX2.RollPerformancePadLed = function(value, group, control)
         }
 };
 
+PioneerDDJSX2.UpdateCueLoopLights=function(channel) {
+  for (var i = 0; i < 8; i++) {
+    if (engine.getValue("[Channel"+(channel+1)+"]",'hotcue_'+(i+1)+'_enabled')) {
+      // Loop Pad LED without shift key
+      midi.sendShortMsg(0x97+channel,0x40+i, (PioneerDDJSX2.settings.cueLoopColors[hclPrec[channel]]));
+      // Loop Pad LED with shift key
+      midi.sendShortMsg(0x97+channel,0x40+i+0x08, (PioneerDDJSX2.settings.cueLoopColors[hclPrec[channel]]));
+    } else {
+      // Loop Pad LED without shift key
+      midi.sendShortMsg(0x97+channel,0x40+i,0);
+      // Loop Pad LED with shift key
+      midi.sendShortMsg(0x97+channel,0x40+i+0x08,0);
+    }
+  }
+}
+
 PioneerDDJSX2.HotCuePerformancePadLed = function(value, group, control) 
 {
 	var channel = PioneerDDJSX2.enumerations.channelGroups[group];
@@ -1515,10 +1534,10 @@ PioneerDDJSX2.HotCuePerformancePadLed = function(value, group, control)
 	// Pad LED with shift key
 	midi.sendShortMsg(0x97 + channel, 0x00 + i - 1 + 0x08, value ? PioneerDDJSX2.settings.hotCueColors[i-1] : 0x00);
         // Loop Pad LED without shift key
-	midi.sendShortMsg(0x97 + channel, 0x40 + i - 1, value ? 0x7f : 0x00);
+	midi.sendShortMsg(0x97 + channel, 0x40 + i - 1, value ? (PioneerDDJSX2.settings.cueLoopColors[hclPrec[channel]]) : 0x00);
 	
 	// Loop Pad LED with shift key
-	midi.sendShortMsg(0x97 + channel, 0x40 + i - 1 + 0x08, value ? 0x7f : 0x00);
+	midi.sendShortMsg(0x97 + channel, 0x40 + i - 1 + 0x08, value ? (PioneerDDJSX2.settings.cueLoopColors[hclPrec[channel]]) : 0x00);
 		}
 		
 		padIndex = i;
@@ -1816,8 +1835,8 @@ PioneerDDJSX2.HotCueLoop = function(performanceChannel, control, value, status)
                 engine.setValue(group, 'reloop_exit',0);
               }
               if (HCLOn[deck]) {
-                midi.sendShortMsg(0x96+deck, 0x40+HCLNum[deck], 0x7f);
-                midi.sendShortMsg(0x96+deck, 0x48+HCLNum[deck], 0x7f);
+                midi.sendShortMsg(0x96+deck, 0x40+HCLNum[deck], PioneerDDJSX2.settings.cueLoopColors[hclPrec[deck-1]]);
+                midi.sendShortMsg(0x96+deck, 0x48+HCLNum[deck], PioneerDDJSX2.settings.cueLoopColors[hclPrec[deck-1]]);
               }
               HCLOn[deck]=1;
               HCLNum[deck]=(control&0x7);
@@ -1828,8 +1847,8 @@ PioneerDDJSX2.HotCueLoop = function(performanceChannel, control, value, status)
                   engine.setValue(group, 'reloop_exit',0);
                 }
                 HCLOn[deck]=0;
-                midi.sendShortMsg(0x96+deck, 0x40+HCLNum[deck], 0x7f);
-                midi.sendShortMsg(0x96+deck, 0x48+HCLNum[deck], 0x7f);
+                midi.sendShortMsg(0x96+deck, 0x40+HCLNum[deck], PioneerDDJSX2.settings.cueLoopColors[hclPrec[deck-1]]);
+                midi.sendShortMsg(0x96+deck, 0x48+HCLNum[deck], PioneerDDJSX2.settings.cueLoopColors[hclPrec[deck-1]]);
             }
 	}
 	
