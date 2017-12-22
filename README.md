@@ -73,9 +73,11 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - crossfader curve (maybe buggy)
 - sampler volume
 - channel/cross fader start
+- parameter 1 and 2
+  - except sampler bank switching
 
 ## What's missing?
-- parameter 1 and 2
+
 - sampler bank switching
 
 ## What's not possible at all?

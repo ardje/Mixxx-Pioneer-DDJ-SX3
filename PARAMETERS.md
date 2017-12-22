@@ -4,8 +4,6 @@
 
 ### Hot Cue Mode
 
-(for now)
-
 - parameter 1: tempo nudge
 - parameter 2: nothing
 
@@ -25,15 +23,31 @@ nothing.
 
 ### Sampler Mode
 
-for now, nothing.
+- parameter 1: change bank
+  - you have 2 banks of 8 samples
+  - for mixxx 2.1 this will be expanded to 8 banks of 8 samples
+- parameter 2: nothing
 
 ### Cue Loop Mode
 
-for now, nothing.
+- parameter 1: change loop precision, color-coded:
+  - pink: 1/32th
+  - magenta: 1/16th
+  - violet: 1/8th
+  - blue (default): 1/4th
+  - light blue: half beat
+  - cyan: 1 beat
+  - aquamarine: 2 beats
+  - green: 4 beats
+  - lime: 8 beats
+  - yellow: 16 beats
+  - orange: 32 beats
+  - red: 64 beats...
+- parameter 2: nothing
 
 ### Saved Loop Mode
 
-for now, nothing.
+nothing.
 
 ### Slicer Loop Mode
 
@@ -41,4 +55,7 @@ nothing.
 
 ### Velocity Sampler Mode
 
-for now, nothing.
+- parameter 1: change bank
+  - you have 2 banks of 8 samples
+  - for mixxx 2.1 this will be expanded to 8 banks of 8 samples
+- parameter 2: nothing
