@@ -335,10 +335,11 @@ PioneerDDJSX2.BindControlConnections = function(isUnbinding)
 			engine.connectControl(channelGroup, 'hotcue_' + (16+(i*2)) +'_enabled', 'PioneerDDJSX2.SavedLoopLights', isUnbinding);
 		}
 		// Hook up the roll performance pads
+		/*
 		for (var interval in PioneerDDJSX2.settings.loopIntervals)
 		{
 			engine.connectControl(channelGroup, 'beatloop_' + interval + '_enabled', 'PioneerDDJSX2.RollPerformancePadLed', isUnbinding);
-		}
+		}*/
 	}
 	engine.connectControl('[EffectRack1_EffectUnit1]', 'group_[Channel1]_enable', 'PioneerDDJSX2.FX1CH1', isUnbinding);
         engine.connectControl('[EffectRack1_EffectUnit2]', 'group_[Channel1]_enable', 'PioneerDDJSX2.FX2CH1', isUnbinding);
