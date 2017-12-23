@@ -67,6 +67,7 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
   - load prepare
 - load buttons
 - panel select
+- input select
 - effects
     - since Mixxx uses a different effect framework, the effect panel wouldn't have worked properly, but i did it anyways
     - check out EFFECTS.md for instructions.

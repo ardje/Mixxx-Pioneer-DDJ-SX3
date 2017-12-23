@@ -813,6 +813,11 @@ PioneerDDJSX2.CrossfaderCurve = function(value, group, control)
 	engine.setValue("[Mixer Profile]","xFaderCurve",control/16);
 };
 
+// This handles the input select switches.
+PioneerDDJSX2.InputSelect = function(group, control, value, status) {
+  engine.setValue("[Channel"+(group+1)+"]","mute",value?1:0);
+}
+
 // This handles the loop in button.
 PioneerDDJSX2.LoopIn = function(group, control, value, status) 
 {
