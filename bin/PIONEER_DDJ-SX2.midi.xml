@@ -1395,9 +1395,27 @@
             </control>
             <control>
                 <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x7D</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
                 <key>PioneerDDJSX2.SetGridAdjust</key>
                 <status>0x90</status>
                 <midino>0x79</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x7D</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -1412,10 +1430,28 @@
                 </options>
             </control>
             <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x7D</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>2</group>
                 <key>PioneerDDJSX2.SetGridAdjust</key>
                 <status>0x92</status>
                 <midino>0x79</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
+                <midino>0x7D</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -1433,6 +1469,42 @@
                 <group>0</group>
                 <key>PioneerDDJSX2.PanelSelect</key>
                 <status>0x96</status>
+                <midino>0x79</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x79</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x79</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x79</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
                 <midino>0x79</midino>
                 <options>
                     <script-binding/>
@@ -2426,70 +2498,6 @@
                 </options>
             </control>
             <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJSX2.HotCueLoop</key>
-                <status>0x0A</status>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
                 <group>[Channel1]</group>
                 <key>PioneerDDJSX2.RollParam1L</key>
                 <status>0x90</status>
@@ -3028,6 +3036,78 @@
                 <key>PioneerDDJSX2.CrossfaderCurve</key>
                 <status>0xB6</status>
                 <midino>0x01</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x7E</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x7E</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x7E</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
+                <midino>0x7E</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x7A</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x7A</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x7A</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
+                <midino>0x7A</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -4562,12 +4642,30 @@
                 </options>
             </control>
             <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x7F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[BeatJump]</group>
                 <key>next</key>
                 <status>0x90</status>
                 <midino>0x7B</midino>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x7F</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4580,6 +4678,15 @@
                 </options>
             </control>
             <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x7F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[BeatJump]</group>
                 <key>next</key>
                 <status>0x92</status>
@@ -4589,12 +4696,57 @@
                 </options>
             </control>
             <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
+                <midino>0x7F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[BeatJump]</group>
                 <key>next</key>
                 <status>0x93</status>
                 <midino>0x7B</midino>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x7B</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x7B</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x7B</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
+                <midino>0x7B</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -6374,9 +6526,81 @@
                 </options>
             </control>
             <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x7C</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x7C</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x7C</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
+                <midino>0x7C</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>1</group>
                 <key>PioneerDDJSX2.PanelSelect</key>
                 <status>0x96</status>
+                <midino>0x78</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x97</status>
+                <midino>0x78</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x98</status>
+                <midino>0x78</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x78</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x9A</status>
                 <midino>0x78</midino>
                 <options>
                     <script-binding/>
