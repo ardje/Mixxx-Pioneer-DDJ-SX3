@@ -65,7 +65,7 @@ var GridAdjust=[0,0,0,0];
 var IgnoreBA=[0,0,0,0];
 var IgnoreBC=[0,0,0,0];
 
-var currenteffect=[0,0];
+var currenteffect=[3,3];
 var currenteffectparamset=[0,0,0,0,0,0,0,0];
 var selectedpanel=0;
 var selectedview=0;
