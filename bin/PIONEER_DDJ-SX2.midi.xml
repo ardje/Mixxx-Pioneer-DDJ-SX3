@@ -404,12 +404,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x3C</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -423,12 +423,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x3C</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -441,12 +441,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x3C</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -459,12 +459,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x3C</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -477,49 +477,49 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x38</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x38</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x38</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x38</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 2 messages.</description>
                 <status>0x97</status>
                 <midino>0x34</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -532,12 +532,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x34</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -550,12 +550,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x34</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -568,12 +568,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x34</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -586,13 +586,13 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 2 messages.</description>
                 <status>0x97</status>
                 <midino>0x30</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -606,12 +606,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x30</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -624,12 +624,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x30</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -651,12 +651,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x30</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1439,48 +1439,48 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x75</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1493,12 +1493,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1511,12 +1511,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1529,12 +1529,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x71</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2208,48 +2208,48 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x3D</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x3D</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x3D</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x3D</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x39</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2262,12 +2262,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x39</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2280,12 +2280,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x39</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2298,12 +2298,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x39</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2316,50 +2316,50 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 4 messages.</description>
                 <status>0x97</status>
                 <midino>0x35</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x35</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x35</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler6]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x35</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 4 messages.</description>
                 <status>0x97</status>
                 <midino>0x31</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2372,12 +2372,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x31</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2390,12 +2390,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x31</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2408,12 +2408,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler2]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x31</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3033,75 +3033,75 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x76</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x72</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3733,48 +3733,48 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x3E</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x3E</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x3E</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x3E</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x3A</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3788,12 +3788,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x3A</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3806,12 +3806,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x3A</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3824,12 +3824,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x3A</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3842,77 +3842,77 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 6 messages.</description>
                 <status>0x97</status>
                 <midino>0x36</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x36</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x36</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler7]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x36</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 6 messages.</description>
                 <status>0x97</status>
                 <midino>0x32</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x32</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x32</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler3]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x32</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4598,48 +4598,48 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x77</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4652,12 +4652,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4670,12 +4670,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4688,12 +4688,12 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x73</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -5352,149 +5352,293 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x3F</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x3F</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x3F</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x3F</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x97</status>
                 <midino>0x3B</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x98</status>
                 <midino>0x3B</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x99</status>
                 <midino>0x3B</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_stop</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
                 <status>0x9A</status>
                 <midino>0x3B</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 10 messages.</description>
                 <status>0x97</status>
                 <midino>0x37</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>[Channel1]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x90</status>
+                <midino>0x33</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x37</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>[Channel2]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x91</status>
+                <midino>0x33</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x37</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler8]</group>
-                <key>start_play</key>
+                <group>[Channel3]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x92</status>
+                <midino>0x33</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x37</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x93</status>
+                <midino>0x33</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <description>MIDI Learned from 8 messages.</description>
                 <status>0x97</status>
                 <midino>0x33</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>[Channel1]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x90</status>
+                <midino>0x2F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x33</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>[Channel2]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x91</status>
+                <midino>0x2F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x33</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler4]</group>
-                <key>start_play</key>
+                <group>[Channel3]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x92</status>
+                <midino>0x2F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x33</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.SamplerParam1R</key>
+                <status>0x93</status>
+                <midino>0x2F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x90</status>
+                <midino>0x2B</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x91</status>
+                <midino>0x2B</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x92</status>
+                <midino>0x2B</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x93</status>
+                <midino>0x2B</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x90</status>
+                <midino>0x27</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x91</status>
+                <midino>0x27</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x92</status>
+                <midino>0x27</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>PioneerDDJSX2.SamplerParam1L</key>
+                <status>0x93</status>
+                <midino>0x27</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -6239,75 +6383,75 @@
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler5]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x74</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x97</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x98</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x99</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
-                <group>[Sampler1]</group>
-                <key>start_play</key>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerPlay</key>
                 <status>0x9A</status>
                 <midino>0x70</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>

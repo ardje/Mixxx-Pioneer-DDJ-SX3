@@ -46,7 +46,16 @@ var slicerbutton=[0,0,0,0];
 var slicerbuttonold=[0,0,0,0];
 var slicerblank=[0,0,0,0];
 var samplerVolume=1.0;
-var sampleVolume=[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+var sampleVolume=[
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
+  0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
+];
 
 var whohandlesdelta=[0,0,0,0];
 var slicertype=[0,0,0,0];
@@ -55,11 +64,47 @@ var slicerpost=[0,0,0,0];
 var HCLOn=[0,0,0,0];
 var HCLNum=[0,0,0,0];
 var slicerlightforce=[0,0,0,0];
-var sampleplaying=[0,0,0,0,0,0,0,0];
-var oldsampleplaying=[0,0,0,0,0,0,0,0];
+var sampleplaying=[
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0
+];
+var oldsampleplaying=[
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0
+];
 var slicertimer;
-var sampleplaying1=[0,0,0,0,0,0,0,0];
-var oldsampleplaying1=[0,0,0,0,0,0,0,0];
+var sampleplaying1=[
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0
+];
+var oldsampleplaying1=[
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0
+];
 var GridSlide=[0,0,0,0];
 var GridAdjust=[0,0,0,0];
 var IgnoreBA=[0,0,0,0];
@@ -79,6 +124,7 @@ var hclPrec=[3,3,3,3];
 var tempoRange=[0,0,0,0];
 var vinylOn=[1,1,1,1];
 var closestBeatToLoopIn=[0,0,0,0];
+var samplerBank=0;
 
 // new slicer variables
 var slicersched=[0,0,0,0];
@@ -87,6 +133,7 @@ var sliceractive=[0,0,0,0];
 var whohandles=[0,0,0,0];
 
 function doTimer() {
+        var ai;
         if (!PioneerDDJSX2.settings.DoNotTrickController) {
         midi.sendSysexMsg(serato,serato.length);
         }
@@ -118,46 +165,27 @@ function doTimer() {
         }
         }
         for (var i=0; i<8; i++) {
+          ai=i+samplerBank*8;
           // sampler check
-            oldsampleplaying1[i]=sampleplaying1[i];
-            sampleplaying1[i]=engine.getValue("[Sampler"+(i+1)+"]","play");
-        if (sampleplaying1[i]) {
-            midi.sendShortMsg(0x97, 0x30+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x97, 0x70+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x98, 0x30+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x98, 0x70+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x99, 0x30+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x99, 0x70+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x9a, 0x30+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x9a, 0x70+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x97, 0x38+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x97, 0x78+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x98, 0x38+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x98, 0x78+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x99, 0x38+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x99, 0x78+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x9a, 0x38+i, (tiltstatus)?0x7f:0x00);
-            midi.sendShortMsg(0x9a, 0x78+i, (tiltstatus)?0x7f:0x00);
+            oldsampleplaying1[ai]=sampleplaying1[ai];
+            sampleplaying1[ai]=engine.getValue("[Sampler"+(ai+1)+"]","play");
+        if (sampleplaying1[ai]) {
+          for (var j=0; j<4; j++) {
+            midi.sendShortMsg(0x97+j, 0x30+i, (tiltstatus)?0x7f:0x00);
+            midi.sendShortMsg(0x97+j, 0x70+i, (tiltstatus)?0x7f:0x00);
+            midi.sendShortMsg(0x97+j, 0x38+i, (tiltstatus)?0x7f:0x00);
+            midi.sendShortMsg(0x97+j, 0x78+i, (tiltstatus)?0x7f:0x00);
+          }
         } else {
-            oldsampleplaying[i]=sampleplaying[i];
-            sampleplaying[i]=(engine.getValue("[Sampler"+(i+1)+"]","track_samples")>0);
-            if (oldsampleplaying[i]!=sampleplaying[i] || oldsampleplaying1[i]!=sampleplaying1[i]) {
-            midi.sendShortMsg(0x97, 0x30+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x97, 0x70+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x98, 0x30+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x98, 0x70+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x99, 0x30+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x99, 0x70+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x9a, 0x30+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x9a, 0x70+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x97, 0x38+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x97, 0x78+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x98, 0x38+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x98, 0x78+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x99, 0x38+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x99, 0x78+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x9a, 0x38+i, (sampleplaying[i])?(0x7f):(0x00));
-            midi.sendShortMsg(0x9a, 0x78+i, (sampleplaying[i])?(0x7f):(0x00));
+            oldsampleplaying[ai]=sampleplaying[ai];
+            sampleplaying[ai]=(engine.getValue("[Sampler"+(ai+1)+"]","track_samples")>0);
+            if (oldsampleplaying[ai]!=sampleplaying[ai] || oldsampleplaying1[ai]!=sampleplaying1[ai]) {
+              for (var j=0; j<4; j++) {
+            midi.sendShortMsg(0x97+j, 0x30+i, (sampleplaying[ai])?(0x7f):(0x00));
+            midi.sendShortMsg(0x97+j, 0x70+i, (sampleplaying[ai])?(0x7f):(0x00));
+            midi.sendShortMsg(0x97+j, 0x38+i, (sampleplaying[ai])?(0x7f):(0x00));
+            midi.sendShortMsg(0x97+j, 0x78+i, (sampleplaying[ai])?(0x7f):(0x00));
+              }
             }
         }
         }
@@ -275,6 +303,7 @@ PioneerDDJSX2.init = function(id)
           engine.setParameter("[Channel"+(i+1)+"]","rateRange",PioneerDDJSX2.settings.tempoRanges[tempoRange[i]]);
         }
         // and finally, change leds to mixxx's status
+        PioneerDDJSX2.RepaintSampler();
         // will be done
 }
     
@@ -1371,18 +1400,29 @@ PioneerDDJSX2.SetVelocitySamplerMode = function(group, control, value, status)
     }
 };
 
+PioneerDDJSX2.SamplerPlay = function(group, control, value, status) 
+{
+  engine.setParameter("[Sampler"+(1+(control&7)+(samplerBank*8))+"]","start_play",value&1);
+};
+
+PioneerDDJSX2.SamplerStop = function(group, control, value, status) 
+{
+  engine.setParameter("[Sampler"+(1+(control&7)+(samplerBank*8))+"]","start_stop",value&1);
+};
+
 PioneerDDJSX2.SetSampleGain = function(value, group, control) 
 {
-        sampleVolume[group-112]=control/127;
-  engine.setParameter("[Sampler"+(group-111)+"]","pregain",samplerVolume*sampleVolume[group-112]);
-	print("doing"+(group-112)+" "+control);
+  var where=(group&7)+(samplerBank*8);
+  sampleVolume[where]=control/127;
+  engine.setParameter("[Sampler"+(1+where)+"]","pregain",samplerVolume*sampleVolume[where]);
 };
 
 PioneerDDJSX2.SetSamplerVol = function(value, group, control) 
 {
   print("setting");      
   samplerVolume=control/127;
-  for (var i=0; i<8; i++) {
+  // to be raised to 64 for 2.1
+  for (var i=0; i<16; i++) {
     engine.setParameter("[Sampler"+(i+1)+"]","pregain",samplerVolume*sampleVolume[i]);
   }
 };
@@ -1430,6 +1470,52 @@ PioneerDDJSX2.RollParam1R = function(group, control, value, status)
     }
     print("new rp: "+rollPrec[group]);
     midi.sendShortMsg(0x90 + group, 0x1e, PioneerDDJSX2.settings.rollColors[rollPrec[group]]);
+  }
+};
+
+PioneerDDJSX2.RepaintSampler = function() {
+  var ai;
+  for (var i=0; i<8; i++) {
+    ai=i+samplerBank*8;
+    if (engine.getValue("[Sampler"+(ai+1)+"]","track_samples")>0) {
+      for (var j=0; j<4; j++) {
+        midi.sendShortMsg(0x97+j, 0x30+i, 0x7f);
+        midi.sendShortMsg(0x97+j, 0x70+i, 0x7f);
+        midi.sendShortMsg(0x97+j, 0x38+i, 0x7f);
+        midi.sendShortMsg(0x97+j, 0x78+i, 0x7f);
+      }
+    } else {
+      for (var j=0; j<4; j++) {
+        midi.sendShortMsg(0x97+j, 0x30+i, 0x00);
+        midi.sendShortMsg(0x97+j, 0x70+i, 0x00);
+        midi.sendShortMsg(0x97+j, 0x38+i, 0x00);
+        midi.sendShortMsg(0x97+j, 0x78+i, 0x00);
+      }
+    }
+  }
+};
+
+PioneerDDJSX2.SamplerParam1L = function(group, control, value, status)
+{
+  if (value==127) {
+    samplerBank--;
+    if (samplerBank<0) {
+      samplerBank=0;
+    } else {
+      PioneerDDJSX2.RepaintSampler();
+    }
+  }
+};
+
+PioneerDDJSX2.SamplerParam1R = function(group, control, value, status)
+{
+  if (value==127) {
+    samplerBank++;
+    if (samplerBank>1) {
+      samplerBank=1;
+    } else {
+      PioneerDDJSX2.RepaintSampler();
+    }
   }
 };
 
