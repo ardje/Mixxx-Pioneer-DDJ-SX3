@@ -8,7 +8,7 @@
 // hrudham for making the DDJ-SR mapping
 // pioneer for making such an awesome controller
 
-var PioneerDDJSX2=function() {}
+var PioneerDDJSX2={};
 
 var serato=[0xF0,0x00,0x20,0x7f,0x50,0x01,0xF7];
 var initstring=[0xF0,0x00,0x20,0x7f,0x03,0x01,0xF7];
@@ -423,7 +423,8 @@ PioneerDDJSX2.BeatActive=function(value, group, control) {
       sliceractive[channel]=0;
       slicerbuttonold[channel]=0;
       whohandles[channel]=0;
-      engine.setValue(group,"beatjump",-wherewerewe[channel]);
+      engine.setValue(group,"slip_enabled",0);
+      //engine.setValue(group,"beatjump",-wherewerewe[channel]);
       wherewerewe[channel]=0;
     }
     if (slicersched[channel]) {
@@ -445,6 +446,7 @@ PioneerDDJSX2.BeatActive=function(value, group, control) {
         IgnoreBC[channel]=1;
         slicerbuttonold[channel]=slicerbutton[channel];
         wherewerewe[channel]=-(beat[channel]%8)+slicerbutton[channel]-1;
+        engine.setValue(group,"slip_enabled",1);
         engine.setValue(group,"beatjump",wherewerewe[channel]);
         slicersched[channel]=0;
         sliceractive[channel]=1;
@@ -525,7 +527,8 @@ PioneerDDJSX2.BeatClosest=function(value, group, control) {
         sliceractive[channel]=0;
         slicerbuttonold[channel]=0;
         whohandles[channel]=0;
-        engine.setValue(group,"beatjump",-wherewerewe[channel]);
+        engine.setValue(group,"slip_enabled",0);
+        //engine.setValue(group,"beatjump",-wherewerewe[channel]);
         wherewerewe[channel]=0;
       }
     }
@@ -549,6 +552,7 @@ PioneerDDJSX2.BeatClosest=function(value, group, control) {
         slicergain[channel]=Math.pow(engine.getValue(group,"VuMeter"),2.5);
         print(slicergain[channel]);
         slicertype[channel]=(Math.floor(beat[channel]%8)!=7 && !(Math.round(slicergain[channel])))?2:1;
+        engine.setValue(group,"slip_enabled",1);
         engine.setValue(group,"beatjump",wherewerewe[channel]);
         slicersched[channel]=0;
         sliceractive[channel]=1;
