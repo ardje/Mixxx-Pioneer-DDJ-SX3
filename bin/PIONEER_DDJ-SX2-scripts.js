@@ -133,6 +133,7 @@ function doTimer() {
   }
   engine.beginTimer(250,"doTimer",1);
   for (var i=0; i<4; i++) {
+    /*
     if (!engine.getValue("[Channel"+(i+1)+"]","play")) {
       midi.sendShortMsg(0x90+i,0x0b,(tiltstatus && engine.getValue("[Channel"+(i+1)+"]","track_samples")>0)?0x7f:0x00);
       if (engine.getValue("[Channel"+(i+1)+"]","cue_point")!=(engine.getValue("[Channel"+(i+1)+"]","playposition")*engine.getValue("[Channel"+(i+1)+"]","track_samples"))) {
@@ -140,7 +141,7 @@ function doTimer() {
       } else {
         midi.sendShortMsg(0x90+i,0x0c,0x7f);
       }
-    }
+    }*/
     if (engine.getValue("[Channel"+(i+1)+"]","slip_enabled")) {
       midi.sendShortMsg(0x90+i,0x40,tiltstatus?0x7F:0x00);
     } else {
@@ -268,8 +269,12 @@ PioneerDDJSX2.init=function(id) {
     // set tempo range
     engine.setParameter("[Channel"+(i+1)+"]","rateRange",PioneerDDJSX2.settings.tempoRanges[tempoRange[i]]);
   }
-  // and finally,change leds to mixxx's status
+  // change leds to mixxx's status
   PioneerDDJSX2.RepaintSampler();
+  PioneerDDJSX2.CCCLeds();
+  // set effects
+  engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel1]_enable",1);
+  engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel2]_enable",1);
 }
 
 PioneerDDJSX2.BindControlConnections=function(isUnbinding) {
@@ -280,10 +285,10 @@ PioneerDDJSX2.BindControlConnections=function(isUnbinding) {
     // the disc lights
     engine.connectControl(channelGroup,'playposition','PioneerDDJSX2.deckLights',isUnbinding);
     // Play/Pause LED
-    engine.connectControl(channelGroup,'play','PioneerDDJSX2.PlayLeds',isUnbinding);
+    engine.connectControl(channelGroup,'play_indicator','PioneerDDJSX2.PlayLeds',isUnbinding);
     engine.connectControl(channelGroup,'sync_enabled','PioneerDDJSX2.SyncLights',isUnbinding);
     // Cue LED
-    engine.connectControl(channelGroup,'cue_default','PioneerDDJSX2.CueLeds',isUnbinding);
+    engine.connectControl(channelGroup,'cue_indicator','PioneerDDJSX2.CueLeds',isUnbinding);
     // PFL/Headphone Cue LED
     engine.connectControl(channelGroup,'pfl','PioneerDDJSX2.HeadphoneCueLed',isUnbinding);
     // Keylock LED
@@ -709,12 +714,9 @@ PioneerDDJSX2.FX2CH4=function(value, group, control) {
 
 //
 PioneerDDJSX2.CueLeds=function(value, group, control) {
-  var channel=PioneerDDJSX2.enumerations.channelGroups[group];  
-  if (control=='reloop_exit') {
-    midi.sendShortMsg(0x90+channel,0x0C,0x7F); // Cue LED
-  } else {
-    midi.sendShortMsg(0x9b,0x10+channel,0x00); // Cue LED in deck
-  }
+  var channel=PioneerDDJSX2.enumerations.channelGroups[group];
+  midi.sendShortMsg(0x90+channel,0x48,value?0x7f:0x00);
+  midi.sendShortMsg(0x90+channel,0x0C,value?0x7f:0x00);
 };
 
 // *wakes up* keylock event.
@@ -970,7 +972,7 @@ PioneerDDJSX2.ClearGrid=function(value, group, control) {
 PioneerDDJSX2.PlayLeds=function(value, group, control) {
   var channel=PioneerDDJSX2.enumerations.channelGroups[group];  
   midi.sendShortMsg(0x90+channel,0x0B,value?0x7F:0x00); // Play/Pause LED
-  midi.sendShortMsg(0x90+channel,0x0C,value?0x7F:0x00); // Cue LED
+  midi.sendShortMsg(0x90+channel,0x47,value?0x7F:0x00); // Shift Play/Pause LED
   if (PioneerDDJSX2.settings.DoNotTrickController) {
     midi.sendShortMsg(0x9B,0x0c+channel,value?0x7F:0x00); // play/pause animation
   }
