@@ -2,27 +2,79 @@
 // based on hrudham's mapping for the DDJ-SR
 // modifications by tildearrow
 // todo:
-// deck switching?
-// and fix the comments,because my excess copy/pasting made some comments really wrong (like,"headphone cue led" in "slip button led" LOL)
+// reorganize code
 // thanks to:
 // hrudham for making the DDJ-SR mapping
 // pioneer for making such an awesome controller
+// license: (MIT)
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 var PioneerDDJSX2={};
 
+// VARIABLES BEGIN //
+
+// SysEx variables- erm, constants.
 PioneerDDJSX2.serato=[0xF0,0x00,0x20,0x7f,0x50,0x01,0xF7];
 PioneerDDJSX2.initstring=[0xF0,0x00,0x20,0x7f,0x03,0x01,0xF7];
-PioneerDDJSX2.oldbeat=[0,0,0,0];
-PioneerDDJSX2.beat=[0,0,0,0];
+
+// general variables
 PioneerDDJSX2.AreWeInShiftMode=0;
 PioneerDDJSX2.tiltstatus=0;
+PioneerDDJSX2.selectedpanel=0;
+PioneerDDJSX2.selectedview=0;
+
+// deck variables
+PioneerDDJSX2.reverse=[0,0,0,0];
+PioneerDDJSX2.vinylOn=[1,1,1,1];
 PioneerDDJSX2.PadMode=[0,0,0,0];
+// 0: 8% of max,1: 16% of max,2: 50% of max 3: 90% of max
+PioneerDDJSX2.tempoRange=[0,0,0,0];
+PioneerDDJSX2.closestBeatToLoopIn=[0,0,0,0];
+
+// jog wheel variables
+PioneerDDJSX2.gridSlide=[0,0,0,0];
+PioneerDDJSX2.gridAdjust=[0,0,0,0];
 PioneerDDJSX2.TurnTablePos=[0,0,0,0];
+
+// roll variables
+PioneerDDJSX2.rollPrec=[2,2,2,2];
+
+// slicer variables
+PioneerDDJSX2.oldbeat=[0,0,0,0];
+PioneerDDJSX2.beat=[0,0,0,0];
 PioneerDDJSX2.slicerstatus=[0,0,0,0];
 PioneerDDJSX2.slicerdelta=[0,0,0,0];
 PioneerDDJSX2.slicerbutton=[0,0,0,0];
 PioneerDDJSX2.slicerbuttonold=[0,0,0,0];
 PioneerDDJSX2.slicerblank=[0,0,0,0];
+PioneerDDJSX2.slicertype=[0,0,0,0];
+PioneerDDJSX2.slicergain=[0,0,0,0];
+PioneerDDJSX2.slicerpost=[0,0,0,0];
+PioneerDDJSX2.IgnoreBA=[0,0,0,0];
+PioneerDDJSX2.IgnoreBC=[0,0,0,0];
+PioneerDDJSX2.slicersched=[0,0,0,0];
+PioneerDDJSX2.wherewerewe=[0,0,0,0];
+PioneerDDJSX2.sliceractive=[0,0,0,0];
+PioneerDDJSX2.whohandles=[0,0,0,0];
+PioneerDDJSX2.slicerlightforce=[0,0,0,0];
+
+// sampler variables
 PioneerDDJSX2.samplerVolume=1.0;
 PioneerDDJSX2.sampleVolume=[
   0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
@@ -34,13 +86,6 @@ PioneerDDJSX2.sampleVolume=[
   0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5,
   0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5
 ];
-
-PioneerDDJSX2.slicertype=[0,0,0,0];
-PioneerDDJSX2.slicergain=[0,0,0,0];
-PioneerDDJSX2.slicerpost=[0,0,0,0];
-PioneerDDJSX2.HCLOn=[0,0,0,0];
-PioneerDDJSX2.HCLNum=[0,0,0,0];
-PioneerDDJSX2.slicerlightforce=[0,0,0,0];
 PioneerDDJSX2.sampleplaying=[
   0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0,
@@ -81,16 +126,14 @@ PioneerDDJSX2.oldsampleplaying1=[
   0,0,0,0,0,0,0,0,
   0,0,0,0,0,0,0,0
 ];
-PioneerDDJSX2.gridSlide=[0,0,0,0];
-PioneerDDJSX2.gridAdjust=[0,0,0,0];
-PioneerDDJSX2.IgnoreBA=[0,0,0,0];
-PioneerDDJSX2.IgnoreBC=[0,0,0,0];
+PioneerDDJSX2.samplerBank=0;
 
-PioneerDDJSX2.currenteffect=[3,3];
-PioneerDDJSX2.currenteffectparamset=[0,0,0,0,0,0,0,0];
-PioneerDDJSX2.selectedpanel=0;
-PioneerDDJSX2.selectedview=0;
-PioneerDDJSX2.reverse=[0,0,0,0];
+// cue loop variables
+PioneerDDJSX2.HCLOn=[0,0,0,0];
+PioneerDDJSX2.HCLNum=[0,0,0,0];
+PioneerDDJSX2.hclPrec=[3,3,3,3];
+
+// effect configurator variables
 PioneerDDJSX2.lt=[
   [
     [0,0,0,0,0,0,0,0,0,0],
@@ -103,20 +146,10 @@ PioneerDDJSX2.lt=[
   ]
 ];
 PioneerDDJSX2.lttimer=0;
-// 0: min 1/32,1: min 1/16,2: min 1/8,etc.
-PioneerDDJSX2.rollPrec=[2,2,2,2];
-PioneerDDJSX2.hclPrec=[3,3,3,3];
-// 0: 8% of max,1: 16% of max,2: 50% of max 3: 90% of max
-PioneerDDJSX2.tempoRange=[0,0,0,0];
-PioneerDDJSX2.vinylOn=[1,1,1,1];
-PioneerDDJSX2.closestBeatToLoopIn=[0,0,0,0];
-PioneerDDJSX2.samplerBank=0;
+PioneerDDJSX2.currenteffect=[3,3];
+PioneerDDJSX2.currenteffectparamset=[0,0,0,0,0,0,0,0];
 
-// new slicer variables
-PioneerDDJSX2.slicersched=[0,0,0,0];
-PioneerDDJSX2.wherewerewe=[0,0,0,0];
-PioneerDDJSX2.sliceractive=[0,0,0,0];
-PioneerDDJSX2.whohandles=[0,0,0,0];
+// VARIABLES END //
 
 function doTimer() {
   var ai;
