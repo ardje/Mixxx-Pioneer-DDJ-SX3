@@ -1364,16 +1364,13 @@ PioneerDDJSX2.pitchBend=function(channel, movement) {
 // re-register that timer whenever we need to to postpone the disable.
 // Very much a hack,but it works,and I'm yet to find a better solution.
 PioneerDDJSX2.scheduleDisableScratch=function(channel) {
-  print("yyyyy");
   PioneerDDJSX2.channels[channel].disableScratchTimer=engine.beginTimer(PioneerDDJSX2.settings.safeScratchTimeout,'PioneerDDJSX2.toggleScratch('+channel+',false)',true);
 };
 
 // If scratch-disabling has been schedule,then unschedule it.
 PioneerDDJSX2.unscheduleDisableScratch=function(channel) {
   if (PioneerDDJSX2.channels[channel].disableScratchTimer) {
-    print("yeah");
     engine.stopTimer(PioneerDDJSX2.channels[channel].disableScratchTimer);
-    print("yeeeah");
   }
 };
 
