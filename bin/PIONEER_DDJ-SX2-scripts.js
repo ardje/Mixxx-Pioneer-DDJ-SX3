@@ -841,14 +841,7 @@ PioneerDDJSX2.CPS=function(value, group, control) {
     }
     print(PioneerDDJSX2.currenteffectparamset[PioneerDDJSX2.currenteffect[0]]);
     // change indicator
-    midi.sendShortMsg(0x94,0x63,(PioneerDDJSX2.currenteffectparamset[PioneerDDJSX2.currenteffect[0]]==0)?0x7F:0x00);
-    midi.sendShortMsg(0x94,0x64,(PioneerDDJSX2.currenteffectparamset[PioneerDDJSX2.currenteffect[0]]==1)?0x7F:0x00);
-    midi.sendShortMsg(0x94,0x65,(PioneerDDJSX2.currenteffectparamset[PioneerDDJSX2.currenteffect[0]]==2)?0x7F:0x00);
-    midi.sendShortMsg(0x94,0x66,(PioneerDDJSX2.currenteffectparamset[PioneerDDJSX2.currenteffect[0]]==3)?0x7F:0x00);
-    midi.sendShortMsg(0x95,0x63,(PioneerDDJSX2.currenteffectparamset[4+PioneerDDJSX2.currenteffect[1]]==0)?0x7F:0x00);
-    midi.sendShortMsg(0x95,0x64,(PioneerDDJSX2.currenteffectparamset[4+PioneerDDJSX2.currenteffect[1]]==1)?0x7F:0x00);
-    midi.sendShortMsg(0x95,0x65,(PioneerDDJSX2.currenteffectparamset[4+PioneerDDJSX2.currenteffect[1]]==2)?0x7F:0x00);
-    midi.sendShortMsg(0x95,0x66,(PioneerDDJSX2.currenteffectparamset[4+PioneerDDJSX2.currenteffect[1]]==3)?0x7F:0x00);
+    PioneerDDJSX2.CCCLeds();
   }
 };
 
