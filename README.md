@@ -78,9 +78,12 @@ the DDJ-SX2 uses a sysex to go into serato mode, so we trick the controller into
 - channel/cross fader start
 - parameter 1 and 2
 
-## What's not possible at all?
+## What's missing
 
 - slicer with different precisions
+
+## What's not possible at all?
+
 - flip
 - track number, song and artist buttons
 - grid clear
