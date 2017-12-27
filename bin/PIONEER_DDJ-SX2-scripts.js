@@ -34,6 +34,7 @@ PioneerDDJSX2.serato=[0xF0,0x00,0x20,0x7f,0x50,0x01,0xF7];
 PioneerDDJSX2.initstring=[0xF0,0x00,0x20,0x7f,0x03,0x01,0xF7];
 
 // general variables
+PioneerDDJSX2.lightsTimer=0;
 PioneerDDJSX2.AreWeInShiftMode=0;
 PioneerDDJSX2.tiltstatus=0;
 PioneerDDJSX2.selectedpanel=0;
@@ -151,12 +152,11 @@ PioneerDDJSX2.currenteffectparamset=[0,0,0,0,0,0,0,0];
 
 // VARIABLES END //
 
-function doTimer() {
+PioneerDDJSX2.doTimer=function() {
   var ai;
   if (!PioneerDDJSX2.settings.DoNotTrickController) {
     midi.sendSysexMsg(PioneerDDJSX2.serato,PioneerDDJSX2.serato.length);
   }
-  engine.beginTimer(250,"doTimer",1);
   for (var i=0; i<4; i++) {
     if (engine.getValue("[Channel"+(i+1)+"]","slip_enabled")) {
       midi.sendShortMsg(0x90+i,0x40,PioneerDDJSX2.tiltstatus?0x7F:0x00);
@@ -254,7 +254,6 @@ PioneerDDJSX2.init=function(id) {
   };
   // disable all lights,i guess
   //midi.sendShortMsg(0xbb,0x09,0x7f);
-  engine.beginTimer(20,"doTimer",1);
   midi.sendShortMsg(0x90,0x0b,0x10); // decoration thing
   midi.sendShortMsg(0x91,0x0b,0x10); // decoration thing
   midi.sendShortMsg(0x92,0x0b,0x10); // decoration thing
@@ -283,14 +282,21 @@ PioneerDDJSX2.init=function(id) {
     // set vinyl mode
     midi.sendShortMsg(0x90+i,0x0d,0x7f);
     // set tempo range
-    engine.setParameter("[Channel"+(i+1)+"]","rateRange",PioneerDDJSX2.settings.tempoRanges[tempoRange[i]]);
+    engine.setParameter("[Channel"+(i+1)+"]","rateRange",PioneerDDJSX2.settings.tempoRanges[PioneerDDJSX2.tempoRange[i]]);
   }
   // change leds to mixxx's status
   PioneerDDJSX2.RepaintSampler();
   PioneerDDJSX2.CCCLeds();
+  for (var i=1; i<=4; i++) {
+    for (var j=1; j<=8; j++) {
+      PioneerDDJSX2.HotCuePerformancePadLed(engine.getValue("[Channel"+i+"]","hotcue_"+j+"_enabled"),"[Channel"+i+"]","hotcue_"+j+"_enabled");
+    }
+  }
   // set effects
   engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel1]_enable",1);
   engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel2]_enable",1);
+  // start timer
+  PioneerDDJSX2.lightsTimer=engine.beginTimer(250,"PioneerDDJSX2.doTimer",0);
 }
 
 PioneerDDJSX2.BindControlConnections=function(isUnbinding) {
@@ -1629,20 +1635,13 @@ PioneerDDJSX2.RotarySelectorClick=function(channel, control, value, status) {
 PioneerDDJSX2.shutdown=function() {
   //PioneerDDJSX2.BindControlConnections(true);
   
-  // Reset the VU meters so that we're not left with
-  // it displaying something when nothing is playing.
-  /*PioneerDDJSX2.vuMeter(0,'[Channel1]','VuMeter');
+  // disable VU meters
+  PioneerDDJSX2.vuMeter(0,'[Channel1]','VuMeter');
   PioneerDDJSX2.vuMeter(0,'[Channel2]','VuMeter');
   PioneerDDJSX2.vuMeter(0,'[Channel3]','VuMeter');
-  PioneerDDJSX2.vuMeter(0,'[Channel4]','VuMeter');*/
-        
-        // reset ALL leds
-        /*for (var k=0; k<16; k++) {
-        for (var jjj=0; jjj<255; jjj++)
-  {
-            midi.sendShortMsg(0x90+k,jjj,0x00);
-        }
-        }*/
+  PioneerDDJSX2.vuMeter(0,'[Channel4]','VuMeter');
+  
+  // disable decks
   midi.sendShortMsg(0xbb,0,0);
   midi.sendShortMsg(0xbb,1,0);
   midi.sendShortMsg(0xbb,2,0);
@@ -1651,4 +1650,6 @@ PioneerDDJSX2.shutdown=function() {
   midi.sendShortMsg(0xbb,5,0);
   midi.sendShortMsg(0xbb,6,0);
   midi.sendShortMsg(0xbb,7,0);
+  // disable timer
+  engine.stopTimer(PioneerDDJSX2.lightsTimer);
 };
