@@ -340,9 +340,11 @@ PioneerDDJSX2.BindControlConnections=function(isUnbinding) {
   engine.connectControl('[EffectRack1_EffectUnit2]','group_[Channel3]_enable','PioneerDDJSX2.FX2CH3',isUnbinding);
   engine.connectControl('[EffectRack1_EffectUnit1]','group_[Channel4]_enable','PioneerDDJSX2.FX1CH4',isUnbinding);
   engine.connectControl('[EffectRack1_EffectUnit2]','group_[Channel4]_enable','PioneerDDJSX2.FX2CH4',isUnbinding);
-  // microphone
-  engine.connectControl('[Microphone]','talkover','PioneerDDJSX2.MicLight',isUnbinding);
-  engine.connectControl('[Master]','talkoverDucking','PioneerDDJSX2.MicDuck',isUnbinding);
+  // pitch
+  engine.connectControl('[Channel1]','pitch_adjust','PioneerDDJSX2.PitchAdjust',isUnbinding);
+  engine.connectControl('[Channel2]','pitch_adjust','PioneerDDJSX2.PitchAdjust',isUnbinding);
+  engine.connectControl('[Channel3]','pitch_adjust','PioneerDDJSX2.PitchAdjust',isUnbinding);
+  engine.connectControl('[Channel4]','pitch_adjust','PioneerDDJSX2.PitchAdjust',isUnbinding);
 };
 
 PioneerDDJSX2.SyncLights=function(value, group, control) {
@@ -682,17 +684,22 @@ PioneerDDJSX2.FX1CH1=function(value, group, control) {
   midi.sendShortMsg(0x96,0x4C,value?0x7F:0x00); // Thing
 };
 
-// This handles-
-PioneerDDJSX2.MicLight=function(value, group, control) {
-  //var channel=PioneerDDJSX2.enumerations.channelGroups[group];  
-  print(value);
-  midi.sendShortMsg(0x90,0x4b,value?0x7F:0x00); // Thing
-};
-
-PioneerDDJSX2.MicDuck=function(value, group, control) {
-  //var channel=PioneerDDJSX2.enumerations.channelGroups[group];  
-  print(value);
-  midi.sendShortMsg(0x90,0x4a,value?0x7F:0x00); // Thing
+// yeah
+PioneerDDJSX2.PitchAdjust=function(value, group, control) {
+  var channel=PioneerDDJSX2.enumerations.channelGroups[group];
+  print("pa");
+  if (value!=0) {
+    if (value>0) {
+      midi.sendShortMsg(0x90+channel,0x4a,0x00);
+      midi.sendShortMsg(0x90+channel,0x4b,0x7F);
+    } else {
+      midi.sendShortMsg(0x90+channel,0x4a,0x7F);
+      midi.sendShortMsg(0x90+channel,0x4b,0x00);
+    }
+  } else {
+    midi.sendShortMsg(0x90+channel,0x4a,0x00);
+    midi.sendShortMsg(0x90+channel,0x4b,0x00);
+  }
 };
 
 // *yawn*

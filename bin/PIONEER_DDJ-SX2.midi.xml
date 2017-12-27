@@ -2045,6 +2045,15 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1]</group>
+                <key>pitch_adjust_set_zero</key>
+                <status>0x90</status>
+                <midino>0x49</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel2]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x98</status>
@@ -2054,12 +2063,39 @@
                 </options>
             </control>
             <control>
+                <group>[Channel2]</group>
+                <key>pitch_adjust_set_zero</key>
+                <status>0x91</status>
+                <midino>0x49</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel3]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x99</status>
                 <midino>0x4D</midino>
                 <options>
                     <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>pitch_adjust_set_zero</key>
+                <status>0x92</status>
+                <midino>0x49</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>pitch_adjust_set_zero</key>
+                <status>0x93</status>
+                <midino>0x49</midino>
+                <options>
+                    <normal/>
                 </options>
             </control>
             <control>
@@ -3584,8 +3620,8 @@
                 </options>
             </control>
             <control>
-                <group>[Master]</group>
-                <key>talkoverDucking</key>
+                <group>[Channel1]</group>
+                <key>pitch_down</key>
                 <status>0x90</status>
                 <midino>0x4A</midino>
                 <options>
@@ -3602,12 +3638,39 @@
                 </options>
             </control>
             <control>
+                <group>[Channel2]</group>
+                <key>pitch_down</key>
+                <status>0x91</status>
+                <midino>0x4A</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel3]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x99</status>
                 <midino>0x4E</midino>
                 <options>
                     <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>pitch_down</key>
+                <status>0x92</status>
+                <midino>0x4A</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>pitch_down</key>
+                <status>0x93</status>
+                <midino>0x4A</midino>
+                <options>
+                    <normal/>
                 </options>
             </control>
             <control>
@@ -5142,6 +5205,15 @@
             </control>
             <control>
                 <group>[Channel1]</group>
+                <key>pitch_up</key>
+                <status>0x90</status>
+                <midino>0x4B</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x97</status>
                 <midino>0x4F</midino>
@@ -5150,9 +5222,9 @@
                 </options>
             </control>
             <control>
-                <group>[Microphone]</group>
-                <key>talkover</key>
-                <status>0x90</status>
+                <group>[Channel2]</group>
+                <key>pitch_up</key>
+                <status>0x91</status>
                 <midino>0x4B</midino>
                 <options>
                     <normal/>
@@ -5169,11 +5241,29 @@
             </control>
             <control>
                 <group>[Channel3]</group>
+                <key>pitch_up</key>
+                <status>0x92</status>
+                <midino>0x4B</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
                 <key>PioneerDDJSX2.HotCueLoop</key>
                 <status>0x99</status>
                 <midino>0x4F</midino>
                 <options>
                     <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>pitch_up</key>
+                <status>0x93</status>
+                <midino>0x4B</midino>
+                <options>
+                    <normal/>
                 </options>
             </control>
             <control>
