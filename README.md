@@ -1,5 +1,7 @@
 # Pioneer DDJ-SX2 MIDI Mapping for Mixxx
 
+![build-not-needed](build.svg)
+
 ## Description 
 
 based on hrudham's DDJ-SR mapping, with lots of modifications to make it work on the SX2.
