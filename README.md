@@ -96,6 +96,6 @@ awesome! go to the "Issues" section, and create an issue.
 
 ## I want to help.
 
-you can fork this repository, clone it, install this mapping, and modify it using Mixxx and your favorite text editor (don't use Notepad though, it does not recognize LF line endings). then copy the changes back to cloned repo, and commit.
+you can fork this repository, clone it, install this mapping, and modify it using Mixxx and your favorite text editor (don't use Notepad though (unless you're an Insider), it does not recognize LF line endings). then copy the changes back to cloned repo, and commit.
 
 make a pull request when done.
