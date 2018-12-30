@@ -19,16 +19,20 @@ here's info on it:
     - led 2 on: parameters 4 to 6
     - led 3 on: parameters 7 to 9
     - led 4 on: parameters 10 to 12
+    - TODO: control parameters 13 and higher, especially on LV2 plugins.
   - if you ever find any effect with more than 12 parameters, please tell me, and i'll try to do something.
   - and if you're controlling the effect chain, the behavior of the knobs maps to:
     - knob 1: nothing.
     - knob 2: super knob.
     - knob 3: mix knob.
-- buttons under effect knobs: controls a parameter's behavior against the super knob. the leds will tell you how is the effect behaving for 2 seconds.
-  - no leds on: nothing.
-  - all leds on: super knob controls this parameter directly.
-  - led 1 on: super knob controls this parameter until it hits the middle.
-  - led 4 on: super knob controls this parameter starting from the middle.
+- buttons under effect knobs: controls a parameter's behavior against the super/meta knob(s), unless you are controlling the effect chain. the leds will tell you how is the effect behaving for 2 seconds.
+  - no leds on: meta/super knob(s) has no effect.
+  - all leds on: meta/super knob(s) controls this parameter directly.
+  - led 1 on: meta/super knob(s) controls this parameter until it hits the middle.
+  - led 4 on: meta/super knob(s) controls this parameter starting from the middle.
   - leds 1 and 4 on: combines behaviors of the previous 2 ones.
+- if you are controlling the effect chain:
+  - button 1 to 3: turn on/off effect.
+  - button 4: control effect mixing mode.
 
 that's it for now. sorry, no eject effect/effect chain or turn on/off effect yet. will be added on a later version.
