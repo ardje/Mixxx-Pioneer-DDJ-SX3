@@ -761,17 +761,6 @@ PioneerDDJSX2.Shift=function(value, group, control) {
   print(PioneerDDJSX2.AreWeInShiftMode);
 };
 
-// This handles the
-PioneerDDJSX2.EffectSelect=function(value, group, control) {
-  //var channel=PioneerDDJSX2.enumerations.channelGroups[group];  
-  print(value);
-  if (PioneerDDJSX2.currenteffect[value-4]<3) {
-    engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(PioneerDDJSX2.currenteffect[value-4]+1)+"]","effect_selector",(control==127)?(-1):(1));
-  } else {
-    engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"]","chain_selector",(control==127)?(-1):(1));
-  }
-};
-
 PioneerDDJSX2.Reverse=function(value, group, control) {
   if (control==127) {  
     PioneerDDJSX2.reverse[value]=!PioneerDDJSX2.reverse[value];
@@ -792,17 +781,26 @@ PioneerDDJSX2.AutoLoop=function(channel, control, value, status) {
 PioneerDDJSX2.CCC=function(value, group, control) {
   //var channel=PioneerDDJSX2.enumerations.channelGroups[group];
   if (control==127) {
+    /*
     PioneerDDJSX2.currenteffect[value-4]++;
     if (PioneerDDJSX2.currenteffect[value-4]>3) {
       PioneerDDJSX2.currenteffect[value-4]=0;
     }
     print(value);
     PioneerDDJSX2.CCCLeds();
+    */
   }
 };
 
 PioneerDDJSX2.CCCLeds=function() {
   // change indicator
+  for (var i=0; i<2; i++) {
+    for (var j=0; j<3; j++) {
+      midi.sendShortMsg(0x94+i,0x47+j,engine.getValue("[EffectRack1_EffectUnit"+(i+1)+"_Effect"+(j+1)+"]","enabled")?0x7F:0x00);
+    }
+    midi.sendShortMsg(0x94+i,0x4a,engine.getValue("[EffectRack1_EffectUnit"+(i+1)+"]","mix_mode")?0x7F:0x00)
+  }
+  /*
   midi.sendShortMsg(0x94,0x47,(PioneerDDJSX2.currenteffect[0]==0)?0x7F:0x00);
   midi.sendShortMsg(0x94,0x48,(PioneerDDJSX2.currenteffect[0]==1)?0x7F:0x00);
   midi.sendShortMsg(0x94,0x49,(PioneerDDJSX2.currenteffect[0]==2)?0x7F:0x00);
@@ -836,12 +834,13 @@ PioneerDDJSX2.CCCLeds=function() {
   if (PioneerDDJSX2.lttimer!=0) {
     engine.stopTimer(PioneerDDJSX2.lttimer);
     PioneerDDJSX2.lttimer=0;
-  }
+  }*/
 };
 
 PioneerDDJSX2.CPS=function(value, group, control) {
   //var channel=PioneerDDJSX2.enumerations.channelGroups[group];
   if (control==127) {
+    /*
     PioneerDDJSX2.currenteffectparamset[((value==5)?(4):(0))+PioneerDDJSX2.currenteffect[value-4]]++;
     if (PioneerDDJSX2.currenteffectparamset[((value==5)?(4):(0))+PioneerDDJSX2.currenteffect[value-4]]>=(engine.getValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(PioneerDDJSX2.currenteffect[value-4]+1)+"]","num_parameters")/3)) {
       PioneerDDJSX2.currenteffectparamset[((value==5)?(4):(0))+PioneerDDJSX2.currenteffect[value-4]]=0;
@@ -849,20 +848,44 @@ PioneerDDJSX2.CPS=function(value, group, control) {
     print(PioneerDDJSX2.currenteffectparamset[PioneerDDJSX2.currenteffect[0]]);
     // change indicator
     PioneerDDJSX2.CCCLeds();
+    */
+  }
+};
+
+// This handles selecting effects.
+PioneerDDJSX2.EffectSelect=function(value, group, control) {
+  //var channel=PioneerDDJSX2.enumerations.channelGroups[group];
+  engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(group-98)+"]","effect_selector",(control==127)?1:0);
+};
+
+// TODO: lotsa' stuff regarding the new effect system.
+PioneerDDJSX2.EffectJog=function(value, group, control) {
+  if (control>63) {
+    engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"]","mix",
+      engine.getValue("[EffectRack1_EffectUnit"+(value-3)+"]","mix")-0.0625*(128-control)
+    );
+  } else {
+    engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"]","mix",
+      engine.getValue("[EffectRack1_EffectUnit"+(value-3)+"]","mix")+0.0625*(control)
+    );
   }
 };
 
 PioneerDDJSX2.EffectKnob=function(value, group, control) {
   if (PioneerDDJSX2.currenteffect[value-4]==3) {
     switch (group) {
+      case 2:
+        engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect1]","meta",control/127);
+        break;
       case 4:
-        engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"]","super1",control/127);
+        engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect2]","meta",control/127);
         break;
       case 6:
-        engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"]","mix",control/127);
+        engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect3]","meta",control/127);
         break;
     }
   } else {
+    /*
     switch (group) {
       case 2:
         engine.setParameter("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(PioneerDDJSX2.currenteffect[value-4]+1)+"]","parameter"+(1+(PioneerDDJSX2.currenteffectparamset[((value-4)*4)+PioneerDDJSX2.currenteffect[value-4]]*3)),control/127);
@@ -874,6 +897,7 @@ PioneerDDJSX2.EffectKnob=function(value, group, control) {
         engine.setParameter("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(PioneerDDJSX2.currenteffect[value-4]+1)+"]","parameter"+(3+(PioneerDDJSX2.currenteffectparamset[((value-4)*4)+PioneerDDJSX2.currenteffect[value-4]]*3)),control/127);
         break;
     }
+    */
   }
 };
 
@@ -884,6 +908,7 @@ PioneerDDJSX2.EffectButton=function(value, group, control) {
         !engine.getValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(group-70)+"]","enabled")
       );
     } else {
+      /*
       if (((PioneerDDJSX2.currenteffectparamset[(4*(value-4))+PioneerDDJSX2.currenteffect[value-4]]*3)+group-71)<engine.getValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(PioneerDDJSX2.currenteffect[value-4]+1)+"]","num_parameters")) {
         PioneerDDJSX2.lt[value-4][PioneerDDJSX2.currenteffect[value-4]][(PioneerDDJSX2.currenteffectparamset[(4*(value-4))+PioneerDDJSX2.currenteffect[value-4]]*3)+group-71]++; if (PioneerDDJSX2.lt[value-4][PioneerDDJSX2.currenteffect[value-4]][(PioneerDDJSX2.currenteffectparamset[(4*(value-4))+PioneerDDJSX2.currenteffect[value-4]]*3)+group-71]>4) {PioneerDDJSX2.lt[value-4][PioneerDDJSX2.currenteffect[value-4]][(PioneerDDJSX2.currenteffectparamset[(4*(value-4))+PioneerDDJSX2.currenteffect[value-4]]*3)+group-71]=0;}
         engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"_Effect"+(PioneerDDJSX2.currenteffect[value-4]+1)+"]","parameter"+((PioneerDDJSX2.currenteffectparamset[(4*(value-4))+PioneerDDJSX2.currenteffect[value-4]]*3)+group-70)+"_link_type",PioneerDDJSX2.lt[value-4][PioneerDDJSX2.currenteffect[value-4]][(PioneerDDJSX2.currenteffectparamset[(4*(value-4))+PioneerDDJSX2.currenteffect[value-4]]*3)+group-71]);
@@ -892,7 +917,9 @@ PioneerDDJSX2.EffectButton=function(value, group, control) {
       } else {
         print("ok");   
       }
+      */
     }
+    PioneerDDJSX2.CCCLeds();
   }
 };
 
@@ -983,6 +1010,7 @@ PioneerDDJSX2.EffectTap=function(value, group, control) {
       engine.setValue("[EffectRack1_EffectUnit"+(value-3)+"]","mix_mode",
         !engine.getValue("[EffectRack1_EffectUnit"+(value-3)+"]","mix_mode")
       );
+      PioneerDDJSX2.CCCLeds();
     }
   }
 };
