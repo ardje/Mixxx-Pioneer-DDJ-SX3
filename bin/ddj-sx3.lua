@@ -58,15 +58,6 @@ local function output_xml()
 		control(c,"SamplerParam1R","Sampler Mode parameter right deck _C_",0x90+c-1,0x2F,g)
 		control(c,"Shift","Shift on deck _C_",0x90+c-1,0x3F,g)
 		control(c,"Shift","Shift on deck _C_",0x90+c-1,0x3F,g)
-            <control>
-                <group>0</group>
-                <key>PioneerDDJSX2.SamplerStop</key>
-                <status>0x99</status>
-                <midino>0x3F</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
 	end
 end
 
