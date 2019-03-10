@@ -2,7 +2,7 @@
 -- Lua-Versions: 5.3 5.2 5.1
 
 local prefix="PioneerDDJSX2."
-local channel={ "[Channel1]","[Channel2]","[Channel3]","[Channel4]" }
+local channel={ [0]="0", "[Channel1]","[Channel2]","[Channel3]","[Channel4]" }
 local leftright={ "LEFT","RIGHT","LEFT","RIGHT" }
 
 local function control(c,k,d,s,m,g)
@@ -57,6 +57,16 @@ local function output_xml()
 		control(c,"SamplerParam1L","Sampler Mode parameter left deck _C_",0x90+c-1,0x27,g)
 		control(c,"SamplerParam1R","Sampler Mode parameter right deck _C_",0x90+c-1,0x2F,g)
 		control(c,"Shift","Shift on deck _C_",0x90+c-1,0x3F,g)
+		control(c,"Shift","Shift on deck _C_",0x90+c-1,0x3F,g)
+            <control>
+                <group>0</group>
+                <key>PioneerDDJSX2.SamplerStop</key>
+                <status>0x99</status>
+                <midino>0x3F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
 	end
 end
 
@@ -77,18 +87,6 @@ io.write(
 output_xml()
 io.write(
 [=[
-<?xml version='1.0' encoding='utf-8'?>
-<MixxxControllerPreset schemaVersion="1" mixxxVersion="2.0.0+">
-    <info>
-        <name>Pioneer DDJ-SX2</name>
-        <author>hrudham, tildearrow</author>
-        <description>Pioneer DDJ-SX2 mapping for Mixxx</description>
-    </info>
-    <controller id="PIONEER">
-        <scriptfiles>
-            <file functionprefix="PioneerDDJSX2" filename="PIONEER_DDJ-SX2-scripts.js"/>
-        </scriptfiles>
-        <controls>
             <control>
                 <group>0</group>
                 <key>PioneerDDJSX2.SamplerStop</key>
